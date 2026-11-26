@@ -610,33 +610,33 @@
 
           <!-- Parents & Residence Grid (Harmonious Symmetrical Layout) -->
           <div class="formal-parents-grid">
-            <div class="formal-parent-card border-r border-[#D4AF37]/30 pr-2.5 sm:pr-4">
-              <span class="formal-parent-tag" data-i18n="sonOf">
+            <div class="formal-parent-card formal-parent-card-left border-r border-[#D4AF37]/30 pr-3 sm:pr-4">
+              <span class="formal-parent-tag text-left" data-i18n="sonOf">
                 বরের অভিভাবকবৃন্দ
               </span>
-              <p id="formal-groom-parents" class="formal-parent-names">
+              <p id="formal-groom-parents" class="formal-parent-names text-left">
                 মোঃ মমতাজ হাসান ও শামীমা বেগম (পাখি)
               </p>
-              <div class="formal-parent-address-wrap">
+              <div class="formal-parent-address-wrap justify-start">
                 <span class="text-[#D4AF37] text-xs">📍</span>
-                <p id="formal-groom-hometown" class="formal-parent-address">
+                <p id="formal-groom-hometown" class="formal-parent-address text-left">
                   ৩৩ নং শহীদ সোহরাওয়ার্দী কলেজ রোড, বানারগাতী, খুলনা
                 </p>
               </div>
             </div>
 
-            <div class="formal-parent-card pl-2.5 sm:pl-4">
-              <span class="formal-parent-tag" data-i18n="daughterOf">
+            <div class="formal-parent-card formal-parent-card-right pl-3 sm:pl-4">
+              <span class="formal-parent-tag text-right" data-i18n="daughterOf">
                 কনের অভিভাবকবৃন্দ
               </span>
-              <p id="formal-bride-parents" class="formal-parent-names">
+              <p id="formal-bride-parents" class="formal-parent-names text-right">
                 সাইফুদ্দিন মাহমুদ ও শাহানা জাহান
               </p>
-              <div class="formal-parent-address-wrap">
-                <span class="text-[#D4AF37] text-xs">📍</span>
-                <p id="formal-bride-hometown" class="formal-parent-address">
+              <div class="formal-parent-address-wrap justify-end">
+                <p id="formal-bride-hometown" class="formal-parent-address text-right">
                   ইকবাল নগর মসজিদ রোড, খুলনা
                 </p>
+                <span class="text-[#D4AF37] text-xs">📍</span>
               </div>
             </div>
           </div>
@@ -714,113 +714,7 @@
         </div>
       </section>
 
-      <!-- SCENE 7: VENUE MAP & TRAVEL GUIDE (v1) -->
-      <section id="travel" class="scroll-scene">
-        <div class="travel-guide-card">
-          <div class="text-center mb-4">
-            <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="travelGuideBadge">
-              যাতায়াত ও দিকনির্দেশনা
-            </span>
-            <h2 class="text-2xl font-bold font-serif gold-foil-text mt-0.5" data-i18n="travelGuideHeading">
-              ভেন্যু ও যাতায়াত তথ্য
-            </h2>
-            <p class="text-xs text-[#FFF6E5]/75 mt-0.5" data-i18n="travelGuideSubheading">
-              সম্মানিত মেহমানদের সুবিধার্থে অনুষ্ঠানস্থলের ম্যাপ ও যাতায়াতের সার্বিক বিবরণ
-            </p>
-          </div>
-
-          <!-- Bus Transit -->
-          <div class="transit-item">
-            <span class="text-xl">🚌</span>
-            <div>
-              <p class="text-xs font-bold text-[#D4AF37]" data-i18n="transitBusLabel">বাস টার্মিনাল ও প্রধান মোড়সমূহ</p>
-              <p class="text-[11px] text-[#FFF6E5]/80 mt-0.5 leading-snug" data-i18n="transitBusDesc">
-                সোনাডাঙ্গা বাস টার্মিনাল, রয়েল মোড়, শিববাড়ি মোড় ও গল্লামারি থেকে যেকোনো বাহনে সহজে পৌঁছানো যাবে।
-              </p>
-            </div>
-          </div>
-
-          <!-- Railway Transit -->
-          <div class="transit-item">
-            <span class="text-xl">🚆</span>
-            <div>
-              <p class="text-xs font-bold text-[#D4AF37]" data-i18n="transitRailLabel">খুলনা রেলওয়ে স্টেশন</p>
-              <p class="text-[11px] text-[#FFF6E5]/80 mt-0.5 leading-snug" data-i18n="transitRailDesc">
-                খুলনা রেলওয়ে স্টেশন থেকে অনুষ্ঠানস্থলে আসার জন্য ইজিবাইক, রিকশা ও ট্যাক্সি সহজলভ্য।
-              </p>
-            </div>
-          </div>
-
-          <!-- Accommodation Assistance -->
-          <div class="transit-item">
-            <span class="text-xl">🏨</span>
-            <div class="flex-1">
-              <p class="text-xs font-bold text-[#D4AF37]" data-i18n="transitStayLabel">আবাসন ও সার্বিক সহায়তা</p>
-              <p class="text-[11px] text-[#FFF6E5]/80 mt-0.5 leading-snug" data-i18n="transitStayDesc">
-                খুলনার বাইরের মেহমানদের আবাসন সহায়তা বা যেকোনো প্রয়োজনে নিচের নম্বরে সরাসরি যোগাযোগের অনুরোধ রইল।
-              </p>
-              <div class="mt-2 flex items-center justify-between">
-                <span class="text-[11px] font-semibold text-[#FFF6E5]" data-i18n="transitContactPerson">শামীমা বেগম (বরের মা)</span>
-                <a href="tel:+8801721193070" class="px-2.5 py-1 rounded-lg bg-[#3D101C] border border-[#D4AF37]/50 text-[#D4AF37] font-bold text-xs flex items-center gap-1">
-                  <span>📞</span> +8801721193070
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Embedded Map -->
-          <div class="map-wrapper">
-            <iframe
-              src="https://maps.google.com/maps?q=22.808816992132105,89.54705054834844&hl=en&z=16&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Khulna Venue Location Map"
-            ></iframe>
-          </div>
-
-          <!-- Open in Google Maps button -->
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=22.808816992132105,89.54705054834844"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-gold-primary"
-          >
-            <span>🗺️</span>
-            <span data-i18n="openInMapsBtn">গুগল ম্যাপে দিকনির্দেশনা ↗</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- SCENE 8: MOMENTS & MEMORIES (v1 empty placeholder frames) -->
-      <section id="moments" class="scroll-scene">
-        <div class="text-center mb-6">
-          <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="momentsBadge">
-            গ্যালারি ও স্মৃতি
-          </span>
-          <h2 class="text-2xl font-bold font-serif gold-foil-text mt-1" data-i18n="momentsHeading">
-            মধুর স্মৃতির অ্যালবাম
-          </h2>
-          <p class="text-xs text-[#FFF6E5]/75 mt-1" data-i18n="momentsSubheading">
-            আমাদের কিছু মধুর স্মৃতি (শীঘ্রই ছবি যুক্ত হবে)
-          </p>
-        </div>
-
-        <div class="space-y-4">
-          <div class="photo-frame-card">
-            <span class="text-2xl mb-1">💍</span>
-            <p class="text-xs font-bold text-[#D4AF37]">Sakib & Easha</p>
-            <p class="text-[11px] text-[#FFF6E5]/60 mt-0.5" data-i18n="emptyPhotoPlaceholder">শীঘ্রই ছবি যুক্ত হবে 📸</p>
-          </div>
-
-          <div class="photo-frame-card">
-            <span class="text-2xl mb-1">✨</span>
-            <p class="text-xs font-bold text-[#D4AF37]">The Beginning of Forever</p>
-            <p class="text-[11px] text-[#FFF6E5]/60 mt-0.5" data-i18n="emptyPhotoPlaceholder">শীঘ্রই ছবি যুক্ত হবে 📸</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SCENE 9: RSVP & WHATSAPP (v1) -->
+      <!-- SCENE 7: RSVP & WHATSAPP (Moved after Countdown) -->
       <section id="rsvp" class="scroll-scene">
         <div class="rsvp-card">
           <div id="rsvp-header" class="text-center mb-5">
@@ -991,6 +885,8 @@
               </button>
             </div>
           </div>
+
+          <!-- Golden Success State Box (Revealed after successful submission) -->
           <div id="rsvp-success-card" class="hidden text-center py-6 px-4 bg-[#3A0F19]/90 border border-[#D4AF37]/60 rounded-2xl shadow-xl space-y-4">
             <div class="w-14 h-14 mx-auto rounded-full bg-[#D4AF37]/20 border border-[#D4AF37] flex items-center justify-center text-2xl shadow-gold-glow animate-bounce">
               ✨
@@ -1023,7 +919,112 @@
               <span data-i18n="rsvpChangeResponseBtn">প্রয়োজনে তথ্য পরিবর্তন করুন ↺</span>
             </button>
           </div>
-          </form>
+        </div>
+      </section>
+
+      <!-- SCENE 8: VENUE MAP & TRAVEL GUIDE (v1) -->
+      <section id="travel" class="scroll-scene">
+        <div class="travel-guide-card">
+          <div class="text-center mb-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="travelGuideBadge">
+              যাতায়াত ও দিকনির্দেশনা
+            </span>
+            <h2 class="text-2xl font-bold font-serif gold-foil-text mt-0.5" data-i18n="travelGuideHeading">
+              ভেন্যু ও যাতায়াত তথ্য
+            </h2>
+            <p class="text-xs text-[#FFF6E5]/75 mt-0.5" data-i18n="travelGuideSubheading">
+              সম্মানিত মেহমানদের সুবিধার্থে অনুষ্ঠানস্থলের ম্যাপ ও যাতায়াতের সার্বিক বিবরণ
+            </p>
+          </div>
+
+          <!-- Bus Transit -->
+          <div class="transit-item">
+            <span class="text-xl">🚌</span>
+            <div>
+              <p class="text-xs font-bold text-[#D4AF37]" data-i18n="transitBusLabel">বাস টার্মিনাল ও প্রধান মোড়সমূহ</p>
+              <p class="text-[11px] text-[#FFF6E5]/80 mt-0.5 leading-snug" data-i18n="transitBusDesc">
+                সোনাডাঙ্গা বাস টার্মিনাল, রয়েল মোড়, শিববাড়ি মোড় ও গল্লামারি থেকে যেকোনো বাহনে সহজে পৌঁছানো যাবে।
+              </p>
+            </div>
+          </div>
+
+          <!-- Railway Transit -->
+          <div class="transit-item">
+            <span class="text-xl">🚆</span>
+            <div>
+              <p class="text-xs font-bold text-[#D4AF37]" data-i18n="transitRailLabel">খুলনা রেলওয়ে স্টেশন</p>
+              <p class="text-[11px] text-[#FFF6E5]/80 mt-0.5 leading-snug" data-i18n="transitRailDesc">
+                খুলনা রেলওয়ে স্টেশন থেকে অনুষ্ঠানস্থলে আসার জন্য ইজিবাইক, রিকশা ও ট্যাক্সি সহজলভ্য।
+              </p>
+            </div>
+          </div>
+
+          <!-- Accommodation Assistance -->
+          <div class="transit-item">
+            <span class="text-xl">🏨</span>
+            <div class="flex-1">
+              <p class="text-xs font-bold text-[#D4AF37]" data-i18n="transitStayLabel">আবাসন ও সার্বিক সহায়তা</p>
+              <p class="text-[11px] text-[#FFF6E5]/80 mt-0.5 leading-snug" data-i18n="transitStayDesc">
+                খুলনার বাইরের মেহমানদের আবাসন সহায়তা বা যেকোনো প্রয়োজনে নিচের নম্বরে সরাসরি যোগাযোগের অনুরোধ রইল।
+              </p>
+              <div class="mt-2 flex items-center justify-between">
+                <span class="text-[11px] font-semibold text-[#FFF6E5]" data-i18n="transitContactPerson">শামীমা বেগম (বরের মা)</span>
+                <a href="tel:+8801721193070" class="px-2.5 py-1 rounded-lg bg-[#3D101C] border border-[#D4AF37]/50 text-[#D4AF37] font-bold text-xs flex items-center gap-1">
+                  <span>📞</span> +8801721193070
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Embedded Map -->
+          <div class="map-wrapper">
+            <iframe
+              src="https://maps.google.com/maps?q=22.808816992132105,89.54705054834844&hl=en&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Khulna Venue Location Map"
+            ></iframe>
+          </div>
+
+          <!-- Open in Google Maps button -->
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=22.808816992132105,89.54705054834844"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold-primary"
+          >
+            <span>🗺️</span>
+            <span data-i18n="openInMapsBtn">গুগল ম্যাপে দিকনির্দেশনা ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- SCENE 8: MOMENTS & MEMORIES (v1 empty placeholder frames) -->
+      <section id="moments" class="scroll-scene">
+        <div class="text-center mb-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="momentsBadge">
+            গ্যালারি ও স্মৃতি
+          </span>
+          <h2 class="text-2xl font-bold font-serif gold-foil-text mt-1" data-i18n="momentsHeading">
+            মধুর স্মৃতির অ্যালবাম
+          </h2>
+          <p class="text-xs text-[#FFF6E5]/75 mt-1" data-i18n="momentsSubheading">
+            আমাদের কিছু মধুর স্মৃতি (শীঘ্রই ছবি যুক্ত হবে)
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="photo-frame-card">
+            <span class="text-2xl mb-1">💍</span>
+            <p class="text-xs font-bold text-[#D4AF37]">Sakib & Easha</p>
+            <p class="text-[11px] text-[#FFF6E5]/60 mt-0.5" data-i18n="emptyPhotoPlaceholder">শীঘ্রই ছবি যুক্ত হবে 📸</p>
+          </div>
+
+          <div class="photo-frame-card">
+            <span class="text-2xl mb-1">✨</span>
+            <p class="text-xs font-bold text-[#D4AF37]">The Beginning of Forever</p>
+            <p class="text-[11px] text-[#FFF6E5]/60 mt-0.5" data-i18n="emptyPhotoPlaceholder">শীঘ্রই ছবি যুক্ত হবে 📸</p>
+          </div>
         </div>
       </section>
 

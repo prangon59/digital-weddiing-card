@@ -462,8 +462,12 @@ export const weddingConfig = {
       bn: "শুভ বিবাহ ও শুভ পরিণয়",
     },
     guestBadgePrefix: {
-      en: "Specially Invited:",
-      bn: "সম্মানিত অতিথি:",
+      en: "Specially Invited",
+      bn: "সম্মানিত অতিথি",
+    },
+    honoredGuestLabel: {
+      en: "Honored Guest",
+      bn: "সম্মানিত অতিথি",
     },
     dateBadge: {
       en: "23 – 27 December 2026 • Khulna, Bangladesh",
@@ -703,7 +707,7 @@ export const weddingConfig = {
     },
     publicWishesTextPlaceholder: {
       en: "Write your heartfelt prayers or congratulations for Sakib & Easha...",
-      bn: "নবদম্পতির জন্য আপনার মনখোলা দোয়া বা শুভকামনা লিখুন...",
+      bn: "বর-কনের নতুন জীবনের জন্য আপনার আন্তরিক দোয়া বা শুভকামনা লিখুন...",
     },
     publicWishesSubmitBtn: {
       en: "Send Warm Blessings 💖",

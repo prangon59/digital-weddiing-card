@@ -432,9 +432,12 @@ class WeddingFinalApp {
     if (this.guest.isPersonalized) {
       if (heroGuestBadgeEl) {
         heroGuestBadgeEl.innerHTML = `
-          <div class="px-4 py-1.5 rounded-full bg-[#1C050B]/90 border border-[#D4AF37]/60 shadow-lg">
-            <p class="text-xs font-semibold text-[#D4AF37]">
-              ✦ ${this.t('guestBadgePrefix')} <span class="text-white">${guestName}</span> ✦
+          <div class="inline-block px-5 py-2 rounded-2xl bg-gradient-to-r from-[#2A0912]/95 via-[#451220]/95 to-[#2A0912]/95 border-1.5 border-[#D4AF37] shadow-[0_0_18px_rgba(212,175,55,0.4)] text-center my-1.5">
+            <p class="text-[11px] font-bold text-[#D4AF37] tracking-wider uppercase">
+              ✦ ${this.t('guestBadgePrefix')} ✦
+            </p>
+            <p class="text-base sm:text-lg font-bold font-serif text-[#FCF6BA] mt-0.5 tracking-wide drop-shadow">
+              ${guestName}
             </p>
           </div>
         `;
@@ -442,9 +445,14 @@ class WeddingFinalApp {
       }
       if (gateGuestBadgeEl) {
         gateGuestBadgeEl.innerHTML = `
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#1C050B]/90 border border-[#D4AF37]/60 text-[#D4AF37] text-xs font-semibold shadow-md">
-            ✦ ${guestName} ✦
-          </span>
+          <div class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-[#24090F]/95 via-[#3D101C]/95 to-[#24090F]/95 border-2 border-[#D4AF37] shadow-[0_0_22px_rgba(212,175,55,0.5)] text-center">
+            <p class="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">
+              ✦ ${this.t('honoredGuestLabel')} ✦
+            </p>
+            <p class="text-xl sm:text-2xl font-bold font-serif text-[#FCF6BA] mt-0.5 tracking-wide drop-shadow-md">
+              ${guestName}
+            </p>
+          </div>
         `;
         gateGuestBadgeEl.style.display = 'block';
       }
@@ -1300,14 +1308,19 @@ class WeddingFinalApp {
 
     const payload = {
       fullName: visitorName,
+      guestName: visitorName,
       email: "-",
-      attendingEvents: attendingLabel,
+      totalSum: 0,
       totalGuests: totalGuestsLabel,
+      borHoludCount: 0,
+      konerHoludCount: 0,
+      weddingCount: 0,
+      receptionCount: 0,
+      attendingEvents: attendingLabel,
       wishes: wishText,
       // Compatibility mapping for Google Apps Script:
-      guestName: "-",
       attendingDetails: visitorName,
-      declinedDetails: attendingLabel,
+      declinedDetails: wishText, // Keeps wishes visible even with legacy Apps Script!
       language: totalGuestsLabel
     };
 
@@ -1372,15 +1385,24 @@ class WeddingFinalApp {
       ? attended.map(ev => ev.title[this.currentLang]).join(', ')
       : (isBn ? 'কোনোটিই নয়' : 'None');
 
-    // 2. Total guests / attendees representation
-    let maxGuestsSelected = 1;
+    // 2. Individual ceremony attendee counts & Total Guests as SUM (Bor Holud, Koner Holud, Biye, Boubhat)
+    let borHoludCount = 0;
+    let konerHoludCount = 0;
+    let weddingCount = 0;
+    let receptionCount = 0;
+
     attended.forEach(ev => {
       const c = this.eventAttendance[ev.id]?.count || 1;
-      if (c > maxGuestsSelected) maxGuestsSelected = c;
+      if (ev.id === 'grooms_holud') borHoludCount = c;
+      else if (ev.id === 'brides_holud') konerHoludCount = c;
+      else if (ev.id === 'wedding') weddingCount = c;
+      else if (ev.id === 'reception') receptionCount = c;
     });
-    const totalGuestsStr = attended.length > 0
-      ? (isBn ? `${toBengaliNumerals(maxGuestsSelected)} জন` : `${maxGuestsSelected} guest${maxGuestsSelected > 1 ? 's' : ''}`)
-      : (isBn ? '০ জন' : '0');
+
+    const totalSum = borHoludCount + konerHoludCount + weddingCount + receptionCount;
+    const totalGuestsStr = isBn
+      ? `${toBengaliNumerals(totalSum)} জন`
+      : `${totalSum} guest${totalSum > 1 ? 's' : ''}`;
 
     // 3. Optional wishes / blessings
     const wishesInput = document.getElementById('rsvp-guest-wishes');
@@ -1394,21 +1416,20 @@ class WeddingFinalApp {
     if (submitIcon) submitIcon.textContent = '⏳';
     if (submitText) submitText.textContent = this.t('submittingRSVP');
 
-    // Mapped precisely to Google Sheet columns:
-    // Col 1: Timestamp
-    // Col 2: Email Address -> "-"
-    // Col 3: আপনার পূর্ণ নাম (Your Full Name) -> guestName
-    // Col 4: আপনি কোন কোন অনুষ্ঠানে উপস্থিত থাকবেন? -> attendingEventNames
-    // Col 5: আপনার সাথে মোট কতজন অতিথি উপস্থিত থাকবেন? -> totalGuestsStr
-    // Col 6: নবদম্পতির জন্য আপনার দোয়া ও শুভকামনা -> guestWishes
+    // Mapped precisely with individual event counts & total sum
     const payload = {
       fullName: guestName,
+      guestName: guestName,
       email: "-",
-      attendingEvents: attendingEventNames,
+      totalSum: totalSum,
       totalGuests: totalGuestsStr,
+      borHoludCount: borHoludCount,
+      konerHoludCount: konerHoludCount,
+      weddingCount: weddingCount,
+      receptionCount: receptionCount,
+      attendingEvents: attendingEventNames,
       wishes: guestWishes,
       // Compatibility mapping with currently deployed Apps Script:
-      guestName: "-",
       attendingDetails: guestName,
       declinedDetails: attendingEventNames,
       language: totalGuestsStr

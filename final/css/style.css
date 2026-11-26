@@ -1193,10 +1193,32 @@ body {
 .formal-parent-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   justify-content: flex-start;
   min-height: 125px;
+}
+
+.formal-parent-card-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.formal-parent-card-left .formal-parent-tag,
+.formal-parent-card-left .formal-parent-names,
+.formal-parent-card-left .formal-parent-address {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.formal-parent-card-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.formal-parent-card-right .formal-parent-tag,
+.formal-parent-card-right .formal-parent-names,
+.formal-parent-card-right .formal-parent-address {
+  text-align: right;
+  justify-content: flex-end;
 }
 
 .formal-parent-tag {
@@ -1209,7 +1231,6 @@ body {
   min-height: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .formal-parent-names {
@@ -1220,19 +1241,15 @@ body {
   min-height: 38px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 4px;
+  padding: 0 2px;
 }
 
 .formal-parent-address-wrap {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
   gap: 4px;
   margin-top: 6px;
   min-height: 34px;
-  text-align: center;
 }
 
 .formal-parent-address {

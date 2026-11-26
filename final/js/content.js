@@ -462,8 +462,12 @@ export const weddingConfig = {
       bn: "শুভ বিবাহ ও শুভ পরিণয়",
     },
     guestBadgePrefix: {
-      en: "Specially Invited:",
-      bn: "সম্মানিত অতিথি:",
+      en: "Specially Invited",
+      bn: "সম্মানিত অতিথি",
+    },
+    honoredGuestLabel: {
+      en: "Honored Guest",
+      bn: "সম্মানিত অতিথি",
     },
     dateBadge: {
       en: "23 – 27 December 2026 • Khulna, Bangladesh",
