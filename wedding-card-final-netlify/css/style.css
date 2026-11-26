@@ -1,0 +1,1582 @@
+/*
+ * WEDDING INVITATION (FINAL VERSION) STYLESHEET
+ * Sakib Hassan Prangon & Easha Mahmud Bhabna
+ * ==========================================
+ * Combines v1 Royal 3D Double Gates, floating petals,
+ * v2 unified top controls, hybrid hero with mandala & lanterns,
+ * 4 programs vertical timeline, standalone countdown, and travel guide.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap');
+
+:root {
+  --maroon-900: #140307;
+  --maroon-800: #1C050B;
+  --maroon-700: #24090F;
+  --maroon-600: #350F18;
+  --maroon-500: #4A1220;
+  --maroon-400: #7A1F2B;
+
+  --gold-100: #FCF6BA;
+  --gold-300: #E8C872;
+  --gold-400: #D4AF37;
+  --gold-500: #BF953F;
+  --gold-600: #B38728;
+  --gold-bright: #F4A300;
+
+  --cream-100: #FFF6E5;
+  --cream-200: #F5EADB;
+  --cream-300: #E8D9C5;
+
+  --whatsapp-green: #25D366;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+  background-color: #0E0205;
+  color: var(--cream-100);
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body {
+  font-family: 'Hind Siliguri', 'Cormorant Garamond', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0E0205;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+.font-serif {
+  font-family: 'Cormorant Garamond', 'Noto Serif Bengali', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+}
+
+.font-bangla {
+  font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Amiri', serif;
+  direction: rtl;
+}
+
+/* Gold Foil Text */
+.gold-foil-text {
+  background: linear-gradient(135deg, #FFF9D2 0%, #D4AF37 30%, #FCF6BA 50%, #AA771C 75%, #F4A300 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+/* Desktop Ambient Backdrop */
+.page-container {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 20%, #2A0912 0%, #0E0205 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.desktop-ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  z-index: 1;
+}
+
+/* Phone Frame (360-440px centered on desktop) */
+.phone-frame {
+  width: 100%;
+  max-width: 440px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1C050B 0%, #24090F 25%, #1F070C 50%, #150307 100%);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(212, 175, 55, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip; /* Clamps all horizontal child leaks while keeping vertical scroll intact */
+  overflow-y: visible;
+}
+
+@media (min-width: 480px) {
+  .phone-frame {
+    margin: 20px auto;
+    border-radius: 40px;
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    min-height: calc(100vh - 40px);
+    overflow: hidden;
+  }
+}
+
+/* Floating Flower Petals Canvas */
+.petals-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* --- TOP FIXED CONTROLS ROW (v2) --- */
+.top-controls-header {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  z-index: 150;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0 16px;
+}
+
+.top-controls-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  background: rgba(28, 5, 11, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 9999px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.lang-btn {
+  min-height: 32px;
+  min-width: 54px;
+  padding: 0 11px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 246, 229, 0.85);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+  color: #1A050B;
+  font-weight: 700;
+  border-color: #FFF2A3;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.control-separator {
+  width: 1px;
+  height: 16px;
+  background: rgba(212, 175, 55, 0.35);
+}
+
+.music-toggle-btn {
+  min-height: 32px;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: rgba(45, 10, 18, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--cream-100);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.music-toggle-btn.playing {
+  background: linear-gradient(135deg, #4A1220 0%, #24090F 100%);
+  border-color: #D4AF37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.music-ripple-effect {
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  animation: rippleGlow 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleGlow {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* --- SCENE 1: ROYAL 3D DOUBLE GATES OPENING (v1) --- */
+.gate-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  z-index: 100;
+  background: #0F0205;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  perspective: 1200px;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gate-overlay.gate-dismiss {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gate-frame-3d {
+  width: 100%;
+  height: 100dvh;
+  max-width: 440px;
+  position: relative;
+  overflow: hidden;
+  perspective: 1200px;
+  background: #24090F;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 480px) {
+  .gate-frame-3d {
+    height: 94vh;
+    border-radius: 36px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* 3D Double French Door Leaves */
+.gate-door-left, .gate-door-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 20;
+  transform-style: preserve-3d;
+  transition: transform 1.35s cubic-bezier(0.16, 1, 0.3, 1), filter 1.35s ease;
+  overflow: hidden;
+  will-change: transform, filter;
+}
+
+.gate-door-left {
+  left: 0;
+  transform-origin: left center;
+  background: radial-gradient(circle at 100% 50%, #4D1220 0%, #2E0711 55%, #180308 100%);
+  border-right: 1.5px solid rgba(212, 175, 55, 0.7);
+  box-shadow: 6px 0 25px rgba(0, 0, 0, 0.9);
+}
+
+.gate-door-right {
+  right: 0;
+  transform-origin: right center;
+  background: radial-gradient(circle at 0% 50%, #4D1220 0%, #2E0711 55%, #180308 100%);
+  border-left: 1.5px solid rgba(212, 175, 55, 0.7);
+  box-shadow: -6px 0 25px rgba(0, 0, 0, 0.9);
+}
+
+/* Door Opening 3D Transform & Lighting */
+.gate-door-left.left-door-opened {
+  transform: perspective(1400px) rotateY(-114deg);
+  filter: brightness(0.6);
+}
+
+.gate-door-right.right-door-opened {
+  transform: perspective(1400px) rotateY(114deg);
+  filter: brightness(0.6);
+}
+
+/* Royal Velvet Texture & Vignette Overlay */
+.gate-leaf-texture {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(10, 1, 3, 0.6) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Arabesque Jaali Lattice Background */
+.gate-jaali-lattice {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+/* Inlaid Filigree Gold Frames on Each Door Leaf */
+.gate-leaf-frame {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.gate-frame-l {
+  inset: 12px 6px 12px 12px;
+  border-left: 2px solid rgba(212, 175, 55, 0.65);
+  border-top: 2px solid rgba(212, 175, 55, 0.65);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.65);
+  border-right: 1px dashed rgba(212, 175, 55, 0.35);
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.12);
+}
+
+.gate-frame-r {
+  inset: 12px 12px 12px 6px;
+  border-right: 2px solid rgba(212, 175, 55, 0.65);
+  border-top: 2px solid rgba(212, 175, 55, 0.65);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.65);
+  border-left: 1px dashed rgba(212, 175, 55, 0.35);
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.12);
+}
+
+/* Ornate Corner Filigrees */
+.corner-filigree {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+}
+.corner-tl { top: -2px; left: -2px; }
+.corner-bl { bottom: -2px; left: -2px; }
+.corner-tr { top: -2px; right: -2px; }
+.corner-br { bottom: -2px; right: -2px; }
+
+/* Symmetrical Center Half-Mandalas on Doors */
+.gate-half-mandala-left {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 200px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.gate-half-mandala-right {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 200px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Vertical Gold Seam Trim Beading along meeting edges */
+.gate-seam-trim-l {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.7);
+  z-index: 6;
+}
+
+.gate-seam-trim-r {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.7);
+  z-index: 6;
+}
+
+/* 3D Embossed Antique Brass Studs */
+.gate-stud {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFFAD1 0%, #D4AF37 50%, #5E3902 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8), inset 0 1px 1px #FFF;
+  border: 0.5px solid #FFD700;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.stud-l-1 { top: 22%; right: 8px; }
+.stud-l-2 { top: 78%; right: 8px; }
+.stud-l-3 { top: 50%; left: 16px; margin-top: -4px; }
+
+.stud-r-1 { top: 22%; left: 8px; }
+.stud-r-2 { top: 78%; left: 8px; }
+.stud-r-3 { top: 50%; right: 16px; margin-top: -4px; }
+
+/* Vertical Gold Light Beam Slit (Bursts on door opening) */
+.gate-light-slit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  margin-left: -2px;
+  background: linear-gradient(180deg, transparent 0%, #FCF6BA 30%, #FFD700 50%, #FCF6BA 70%, transparent 100%);
+  box-shadow: 0 0 25px 8px rgba(255, 215, 0, 0.9);
+  z-index: 28;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gate-light-slit.active {
+  animation: lightBeamPulse 0.85s ease-out forwards;
+}
+
+@keyframes lightBeamPulse {
+  0% { opacity: 0; transform: scaleX(0.5); }
+  25% { opacity: 1; transform: scaleX(3); }
+  100% { opacity: 0; transform: scaleX(8); }
+}
+
+/* Center Molten Wax Seal & Shockwave */
+.gate-seal-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  pointer-events: none;
+}
+
+.seal-shockwave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 104px;
+  height: 104px;
+  margin: -52px 0 0 -52px;
+  border-radius: 50%;
+  border: 2px solid #FCF6BA;
+  box-shadow: 0 0 35px #FFD700, inset 0 0 20px #FFD700;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 29;
+}
+
+.seal-shockwave.active {
+  animation: shockwaveExpand 0.75s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes shockwaveExpand {
+  0% { transform: scale(0.85); opacity: 1; }
+  100% { transform: scale(3.2); opacity: 0; border-width: 0.5px; }
+}
+
+.gate-seal-btn {
+  width: 108px;
+  height: 108px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  pointer-events: auto;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gate-seal-btn:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 20px rgba(244, 163, 0, 0.7));
+}
+
+.gate-seal-btn.seal-break {
+  animation: royalSealBreak 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes royalSealBreak {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(244, 163, 0, 0.5));
+  }
+  35% {
+    transform: scale(1.2) rotate(-8deg);
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1)) brightness(1.3);
+  }
+  65% {
+    transform: scale(1.4) rotate(15deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.8) rotate(30deg);
+    opacity: 0;
+    filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0)) brightness(2);
+  }
+}
+
+/* Gate Top & Bottom Overlays */
+.gate-top-bar {
+  position: relative;
+  z-index: 30;
+  padding-top: 76px;
+  padding-bottom: 8px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.gate-bottom-bar {
+  position: relative;
+  z-index: 30;
+  padding-bottom: 24px;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.gate-pulse-badge {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4A300 50%, #BF953F 100%);
+  color: #1A050B;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  box-shadow: 0 0 25px rgba(244, 163, 0, 0.6);
+  animation: pulseGlow 2s infinite ease-in-out;
+  border: 1px solid #FFF2A3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(244, 163, 0, 0.8); }
+}
+
+/* Interior Reveal Chamber Behind Gates */
+.gate-reveal-chamber {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: radial-gradient(circle at 50% 50%, #4A1220 0%, #24090F 70%, #150307 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.gate-reveal-chamber.chamber-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- SCENE CONTAINERS & 3D PARCHMENT SCROLL UNFOLD --- */
+.scroll-scene {
+  padding: 56px 20px 40px;
+  position: relative;
+  scroll-margin-top: 72px;
+  opacity: 0;
+  transform: perspective(1000px) rotateX(6deg) translateY(32px);
+  transform-origin: top center;
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+  overflow-x: clip; /* Clamps all 3D transforms & sweeps inside card boundary */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.scroll-scene.scene-visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg) translateY(0);
+}
+
+/* Subtle gold foil sweep across the cards when revealed */
+.scroll-scene.scene-visible::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 235, 160, 0.08), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: goldFoilSweep 1.2s ease-out 0.2s forwards;
+}
+
+@keyframes goldFoilSweep {
+  0% { left: -80%; opacity: 0; }
+  35% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-scene {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .scroll-scene.scene-visible::after {
+    display: none !important;
+  }
+}
+
+/* --- SCENE 2: HYBRID HERO (Mandala + Archway + Lanterns) --- */
+.hero-scene {
+  padding-top: 88px !important;
+  min-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 36px;
+  position: relative;
+  overflow: hidden; /* Hard clip mandala and lanterns to hero */
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Rotating Mandala Rings from v1 */
+.mandala-ring-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(380px, 92vw);
+  height: min(380px, 92vw);
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: spinMandala 60s linear infinite;
+}
+
+.mandala-ring-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(290px, 72vw);
+  height: min(290px, 72vw);
+  border-radius: 9999px;
+  border: 1px dashed rgba(212, 175, 55, 0.22);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@keyframes spinMandala {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Swaying Lanterns from v2 */
+.hanging-lantern {
+  position: absolute;
+  top: 10px;
+  z-index: 4;
+  animation: lanternSway 4s ease-in-out infinite alternate;
+}
+
+.lantern-left { left: 16px; }
+.lantern-right { right: 16px; animation-delay: -2s; }
+
+@keyframes lanternSway {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+.lantern-glow {
+  filter: drop-shadow(0 0 8px rgba(244, 163, 0, 0.75));
+}
+
+.hero-archway-card {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, #4A1220 0%, #24090F 70%, #150307 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.75);
+  padding: 30px 16px 20px;
+}
+
+.hero-couple-title {
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+/* --- 3D ROYAL CARD SHADOWS (Exact from v1 index.css) --- */
+.shadow-3d-card {
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.65), 
+    0 0 25px rgba(201, 162, 75, 0.22),
+    inset 0 1px 1px rgba(255, 246, 229, 0.25);
+}
+
+.shadow-3d-gold {
+  box-shadow: 
+    0 10px 30px rgba(201, 162, 75, 0.35),
+    0 0 15px rgba(244, 163, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* --- SCENE 3: OUR STORY (Exact from v1 OurStory.jsx) --- */
+.story-scene-wrapper {
+  position: relative;
+  padding: 48px 12px;
+  background: linear-gradient(180deg, #1C050B 0%, #26080F 50%, #1C050B 100%);
+  overflow: hidden;
+  border-radius: 28px;
+  margin: 16px 0;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.story-watercolor-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(180deg, #1C050B 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.story-watercolor-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(0deg, #1C050B 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Story View Toggle Switch */
+.story-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(43, 14, 20, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 9999px;
+  padding: 3px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.story-toggle-btn {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 246, 229, 0.8);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.story-toggle-btn.active {
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+  color: #24090F;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Mobile 3D Swipeable Carousel */
+.story-carousel-container {
+  overflow: hidden;
+  contain: paint;
+  width: 100%;
+  max-width: 100%;
+  touch-action: pan-y;
+  perspective: 1000px;
+  user-select: none;
+}
+
+.story-carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+  width: 100%;
+}
+
+.story-carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 6px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tilt-card {
+  transition: transform 0.2s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.story-tilt-inner {
+  width: 100%;
+  background: linear-gradient(180deg, #2B0E14 0%, #1F070C 100%);
+  border-radius: 24px;
+  padding: 24px 16px;
+  border: 2px solid rgba(212, 175, 55, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.story-slide-img-box {
+  width: 210px;
+  height: 210px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  background-color: #150307;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.story-slide-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 8px;
+}
+
+.story-carousel-nav-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: #3D101C;
+  color: #D4AF37;
+}
+
+.story-carousel-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: #1F070C;
+  color: rgba(255, 246, 229, 0.3);
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.story-carousel-nav-btn.next-gold-glow {
+  background: linear-gradient(90deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+  color: #24090F;
+  border-color: #FFF2A3;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+  font-weight: bold;
+}
+
+.story-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.story-carousel-dot {
+  min-width: 24px;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.story-dot-core {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+  width: 10px;
+  height: 10px;
+  background: rgba(212, 175, 55, 0.3);
+}
+
+.story-carousel-dot.active .story-dot-core {
+  width: 28px;
+  height: 10px;
+  background: linear-gradient(90deg, #D4AF37 0%, #F59E0B 100%);
+  box-shadow: 0 0 10px rgba(201, 162, 75, 0.7);
+}
+
+/* Desktop 3-Stage Stepper & Interactive Stage */
+.story-desktop-steppers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.story-stage-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  cursor: pointer;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(43, 14, 20, 0.8);
+  color: #FFF6E5;
+}
+
+.story-stage-tab-btn.active {
+  background: linear-gradient(90deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+  color: #24090F;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(201, 162, 75, 0.35);
+  border-color: #FFF2A3;
+  transform: scale(1.04);
+}
+
+.story-desktop-card {
+  position: relative;
+  background: linear-gradient(180deg, #2B0E14 0%, #1C050B 100%);
+  border-radius: 28px;
+  padding: 24px 16px;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  text-align: center;
+}
+
+.story-vine-wrapper {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.story-vine-line-bar {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.3) 0%, #F59E0B 50%, rgba(212, 175, 55, 0.3) 100%);
+  border-radius: 9999px;
+}
+
+.story-vine-heart-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background-color: #3D101C;
+  border: 1px solid #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(201, 162, 75, 0.35);
+  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-desktop-avatars-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 220px;
+  padding: 12px 0;
+}
+
+.story-avatar-box {
+  width: 120px;
+  height: 120px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  background-color: #150307;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-desktop-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* --- SCENE 4: FORMAL INVITATION (v2 Scalloped Arch) --- */
+.formal-scalloped-card {
+  background: linear-gradient(180deg, #2A0912 0%, #350F18 40%, #1F070C 100%);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 30px;
+  padding: 32px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+}
+
+.formal-quran-box {
+  margin: 16px 0;
+  padding: 12px 14px;
+  background: rgba(20, 3, 7, 0.65);
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.formal-parents-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 18px 0;
+  padding: 14px 0;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* --- SCENE 5: VERTICAL TIMELINE (v2 stem) --- */
+.timeline-container {
+  position: relative;
+  margin-top: 24px;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 21px;
+  width: 2px;
+  background: linear-gradient(180deg, #D4AF37 0%, rgba(212, 175, 55, 0.2) 100%);
+  z-index: 1;
+}
+
+/* Liquid Gold Timeline Stem (Scroll Progress) */
+.timeline-liquid-stem {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 4px;
+  height: 0%;
+  max-height: calc(100% - 40px);
+  background: linear-gradient(180deg, #FFF6BD 0%, #FFD700 25%, #D4AF37 60%, #E68A00 100%);
+  border-radius: 9999px;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.85), 0 0 22px rgba(212, 175, 55, 0.5);
+  transition: height 0.12s linear;
+  pointer-events: none;
+}
+
+.timeline-liquid-stem::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FFF6BD;
+  box-shadow: 0 0 12px #FFD700, 0 0 20px #FFFFFF;
+}
+
+/* Timeline Node Activated State */
+.timeline-node {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.timeline-node.node-activated .timeline-badge {
+  border-color: #FFF2A3 !important;
+  background: radial-gradient(circle at 35% 35%, #591626 0%, #29080F 100%) !important;
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.9), 0 0 32px rgba(212, 175, 55, 0.5) !important;
+  transform: scale(1.1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.timeline-node.node-activated .timeline-card {
+  border-color: rgba(212, 175, 55, 0.75) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 16px rgba(212, 175, 55, 0.22) !important;
+  transform: translateY(-2px);
+  transition: all 0.4s ease;
+}
+
+/* --- SCENE 6: STANDALONE COUNTDOWN (v1) --- */
+.countdown-section-card {
+  background: linear-gradient(180deg, #2B0E14 0%, #350F18 50%, #1C050B 100%);
+  border: 2px solid rgba(212, 175, 55, 0.45);
+  border-radius: 28px;
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 360px;
+  margin: 20px auto 0;
+}
+
+.countdown-box {
+  background: linear-gradient(180deg, #24090F 0%, #150307 100%);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 16px;
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.countdown-val {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: monospace;
+  line-height: 1;
+}
+
+.countdown-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* --- SCENE 7: TRAVEL GUIDE (v1) --- */
+.travel-guide-card {
+  background: linear-gradient(180deg, #2B0E14 0%, #1F070C 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 28px;
+  padding: 24px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.transit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(28, 5, 11, 0.7);
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  margin-bottom: 10px;
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  margin: 16px 0;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Buttons */
+.btn-gold-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+  color: #1A050B;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #FFF2A3;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.btn-gold-primary:active {
+  transform: scale(0.98);
+}
+
+/* --- SCENE 8: MOMENTS & MEMORIES (Placeholder frames) --- */
+.photo-frame-card {
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  border: 2px dashed rgba(212, 175, 55, 0.4);
+  background: rgba(28, 5, 11, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+/* --- SCENE 9: RSVP & WHATSAPP (v1) --- */
+.rsvp-card {
+  background: linear-gradient(180deg, #2B0E14 0%, #350F18 50%, #1F070C 100%);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 28px;
+  padding: 24px 18px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+}
+
+.rsvp-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  background: #1C050B;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 16px;
+  color: var(--cream-100);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.rsvp-input:focus {
+  border-color: #D4AF37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-googleform-rsvp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+  color: #24090F;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid #FFF2A3;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-googleform-rsvp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+}
+
+.btn-googleform-rsvp:active {
+  transform: scale(0.98);
+}
+
+.btn-whatsapp-rsvp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #25D366 0%, #20BA5C 50%, #128C7E 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid #7DFFB3;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s ease;
+}
+
+.btn-whatsapp-rsvp:active {
+  transform: scale(0.98);
+}
+
+/* Footer */
+.site-footer {
+  padding: 36px 20px 48px;
+  text-align: center;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  background: #140307;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: rgba(43, 14, 20, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #D4AF37;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.footer-btn:hover {
+  background: rgba(74, 18, 32, 0.95);
+  border-color: #D4AF37;
+  color: #FFF6E5;
+}
+
+/* ==========================================================================
+   LUXURY FLOATING WAX SEAL & CIRCULAR SCROLL PROGRESS RING
+   ========================================================================== */
+.scroll-seal-container {
+  position: fixed;
+  bottom: 26px;
+  right: calc(50% - 200px); /* Centers inside the 440px phone frame on desktop */
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(24px) scale(0.7);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-seal-container.seal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+@media (max-width: 480px) {
+  .scroll-seal-container {
+    right: 18px;
+    bottom: 22px;
+  }
+}
+
+.floating-scroll-seal {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  outline: none;
+  touch-action: manipulation;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floating-scroll-seal:hover {
+  transform: scale(1.08) translateY(-3px);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
+}
+
+.floating-scroll-seal:active {
+  transform: scale(0.95) translateY(0);
+}
+
+/* Circular SVG Progress Ring */
+.seal-progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  transform: rotate(-90deg); /* Start from top 12 o'clock */
+  pointer-events: none;
+}
+
+.seal-ring-track {
+  fill: none;
+  stroke: rgba(212, 175, 55, 0.25);
+  stroke-width: 2.5;
+}
+
+.seal-ring-progress {
+  fill: none;
+  stroke: url(#goldGradient) #FFD700;
+  stroke: #FFD700;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 144.51;
+  stroke-dashoffset: 144.51; /* Dynamically updated via JS */
+  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.9));
+  transition: stroke-dashoffset 0.15s ease-out;
+}
+
+/* Miniature 3D Dark Maroon & Gold Wax Seal Core */
+.mini-seal-disc {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFF2A3 0%, #D4AF37 42%, #997A15 78%, #523F07 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.7),
+    inset 0 2px 3px rgba(255, 255, 255, 0.75),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+    0 0 10px rgba(212, 175, 55, 0.4);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Wavy Organic Outer Contour of Wax Seal */
+.mini-seal-rim {
+  position: absolute;
+  inset: 1px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Beaded Inner Ring */
+.mini-seal-beads {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 1px dashed rgba(77, 14, 28, 0.45);
+  pointer-events: none;
+}
+
+/* Dark Maroon Monogram "S & E" */
+.mini-seal-initials {
+  font-family: 'Cinzel', 'Cinzel Decorative', 'Times New Roman', serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #380812; /* Royal Dark Maroon */
+  letter-spacing: -0.5px;
+  line-height: 1;
+  text-shadow:
+    0 1px 0 rgba(255, 242, 163, 0.6),
+    0 -1px 1px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1;
+}
+
+/* Quick Scroll-To-Top Arrow Indicator */
+.mini-seal-arrow {
+  position: absolute;
+  font-size: 13px;
+  font-weight: 900;
+  color: #380812;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+  line-height: 1;
+}
+
+.floating-scroll-seal:hover .mini-seal-initials {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.floating-scroll-seal:hover .mini-seal-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax Lanterns & Archway Depth Smooth Transition */
+.hanging-lantern {
+  will-change: transform;
+  transform-origin: top center;
+  transition: transform 0.12s linear;
+}
+
+.mandala-ring-outer,
+.mandala-ring-inner {
+  will-change: transform;
+}

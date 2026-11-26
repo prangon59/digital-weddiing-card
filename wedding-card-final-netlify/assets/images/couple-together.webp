@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <radialGradient id="creamWash" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="60%" stop-color="#FFF6E5" />
+      <stop offset="100%" stop-color="#FCEFD2" />
+    </radialGradient>
+    <radialGradient id="goldGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDE8B3" />
+      <stop offset="45%" stop-color="#C9A24B" />
+      <stop offset="100%" stop-color="#8F6B20" />
+    </radialGradient>
+    <radialGradient id="maroonWash" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#9E2B3B" />
+      <stop offset="70%" stop-color="#7A1F2B" />
+      <stop offset="100%" stop-color="#4B0F18" />
+    </radialGradient>
+  </defs>
+  
+  <rect width="800" height="600" rx="28" fill="url(#creamWash)" />
+  <!-- Floral & Marigold Arch -->
+  <circle cx="400" cy="240" r="230" fill="#FFF0BF" opacity="0.4" filter="url(#softGlow)" />
+  <circle cx="280" cy="300" r="180" fill="#E3EBE3" opacity="0.5" filter="url(#softGlow)" />
+  <circle cx="520" cy="300" r="180" fill="#F2D3D7" opacity="0.5" filter="url(#softGlow)" />
+
+  <!-- Grand Floral Arch -->
+  <path d="M120,550 L120,260 Q400,20 680,260 L680,550" fill="none" stroke="#C9A24B" stroke-width="3" />
+  <path d="M140,550 L140,270 Q400,50 660,270 L660,550" fill="none" stroke="#F4A300" stroke-width="1.5" stroke-dasharray="8 6" />
+
+  <!-- Hanging garlands & floating petals -->
+  <g opacity="0.85">
+    <circle cx="240" cy="130" r="9" fill="#F4A300" />
+    <circle cx="240" cy="150" r="7" fill="#FFFDF9" />
+    <circle cx="240" cy="168" r="8" fill="#7A1F2B" />
+    
+    <circle cx="400" cy="70" r="11" fill="#7A1F2B" />
+    <circle cx="400" cy="94" r="8" fill="#F4A300" />
+    <circle cx="400" cy="115" r="9" fill="#FFFDF9" />
+
+    <circle cx="560" cy="130" r="9" fill="#F4A300" />
+    <circle cx="560" cy="150" r="7" fill="#FFFDF9" />
+    <circle cx="560" cy="168" r="8" fill="#7A1F2B" />
+  </g>
+
+  <!-- Couple Standing Harmoniously Together -->
+  <!-- Groom (Left side, warm & loving) -->
+  <g transform="translate(330, 320)">
+    <!-- Sherwani body -->
+    <path d="M-50,30 L-85,200 L40,200 L20,30 Z" fill="#FFFDF9" stroke="#C9A24B" stroke-width="2" />
+    <path d="M-15,30 L-15,200" stroke="#C9A24B" stroke-width="2.5" stroke-dasharray="6 4" />
+    <path d="M-50,40 Q-70,110 -35,200" fill="none" stroke="#7A1F2B" stroke-width="12" />
+
+    <!-- Head & Hair -->
+    <ellipse cx="-15" cy="-35" rx="42" ry="48" fill="#E5B287" />
+    <path d="M-55,-40 Q-30,-85 5,-80 Q32,-75 25,-40 Q15,-60 -15,-55 Q-40,-58 -55,-40 Z" fill="#1C100C" />
+    <!-- Beard -->
+    <path d="M-48,-20 Q-50,15 -15,20 Q15,15 10,-20" fill="none" stroke="#1C100C" stroke-width="4" opacity="0.8" />
+    <!-- Groom eye looking gently toward bride -->
+    <ellipse cx="-4" cy="-35" rx="5" ry="3.5" fill="#382226" />
+    <circle cx="-3" cy="-36" r="1.2" fill="#FFFFFF" />
+    <path d="M-22,-12 Q-10,-5 2,-12" fill="none" stroke="#7A1F2B" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Bride (Right side, glowing in bridal red) -->
+  <g transform="translate(470, 325)">
+    <!-- Red Bridal Saree with Gold Embellishments -->
+    <path d="M-30,30 L-50,200 L85,200 L45,30 Z" fill="#7A1F2B" />
+    <path d="M-30,30 Q10,100 65,200" fill="none" stroke="#C9A24B" stroke-width="10" />
+    <!-- Necklace -->
+    <path d="M-15,35 Q10,75 35,35" fill="none" stroke="#C9A24B" stroke-width="4" />
+
+    <!-- Head & Veil -->
+    <ellipse cx="10" cy="-35" rx="40" ry="46" fill="#E5B287" />
+    <!-- Veil (Ourna) -->
+    <path d="M-40,-45 Q15,-100 65,-45 Q80,25 65,100 L-40,100 Z" fill="#A43444" opacity="0.8" />
+    <path d="M-35,-40 Q15,-80 60,-40" fill="none" stroke="#C9A24B" stroke-width="3" stroke-dasharray="5 3" />
+    
+    <!-- Tikli & Bindi -->
+    <circle cx="10" cy="-50" r="4.5" fill="#7A1F2B" stroke="#C9A24B" stroke-width="1.5" />
+    <circle cx="10" cy="-40" r="2.5" fill="#7A1F2B" />
+    <!-- Jhumka -->
+    <circle cx="48" cy="-20" r="3" fill="#C9A24B" />
+
+    <!-- Bride eye looking lovingly toward groom -->
+    <ellipse cx="-2" cy="-34" rx="5" ry="3.5" fill="#382226" />
+    <circle cx="-1" cy="-35" r="1.2" fill="#FFFFFF" />
+    <!-- Soft sweet smile -->
+    <path d="M-2,-12 Q10,-5 22,-12" fill="none" stroke="#7A1F2B" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Floating Hearts & Petals -->
+  <g opacity="0.9">
+    <path d="M400,210 Q400,195 385,195 Q370,195 370,210 Q370,225 400,245 Q430,225 430,210 Q430,195 415,195 Q400,195 400,210 Z" fill="#7A1F2B" />
+    <circle cx="340" cy="180" r="5" fill="#F4A300" opacity="0.8" />
+    <circle cx="460" cy="170" r="4" fill="#C9A24B" opacity="0.8" />
+  </g>
+
+  <!-- Bottom Couple Title Plaque -->
+  <g transform="translate(400, 545)">
+    <rect x="-240" y="-24" width="480" height="48" rx="24" fill="#FFFDF9" stroke="#C9A24B" stroke-width="2" />
+    <text x="0" y="7" font-family="'Noto Serif Bengali', serif" font-size="18" fill="#7A1F2B" font-weight="bold" text-anchor="middle">সাকিব ও ভাবনা • Sakib &amp; Easha</text>
+  </g>
+
+</svg>

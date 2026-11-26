@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Link Generator | সাকিব ও ভাবনা এর বিয়ের লিংক জেনারেটর</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔗%3C/text%3E%3C/svg%3E" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background: radial-gradient(circle at top center, #350F18 0%, #1C050B 50%, #120206 100%);
+      color: #FFF6E5;
+      min-height: 100vh;
+    }
+    .gold-text {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-btn {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+      color: #1A050B;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .gold-btn:hover {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      transform: translateY(-1px);
+    }
+    .input-box {
+      background: rgba(28, 5, 11, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #FFF6E5;
+      border-radius: 12px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-box:focus {
+      border-color: #D4AF37;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+    }
+    .event-chip {
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    .event-chip input:checked + div {
+      background: rgba(122, 31, 43, 0.9);
+      border-color: #D4AF37;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+    }
+    .preset-btn {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #D4AF37;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+    }
+    .preset-btn:hover {
+      background: rgba(212, 175, 55, 0.25);
+      border-color: #D4AF37;
+      color: #FFF6E5;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-6 flex flex-col items-center justify-center">
+
+  <div class="w-full max-w-lg bg-[#24090F]/90 border border-[#D4AF37]/40 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+    
+    <!-- Header -->
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold mb-2">
+        <span>✨</span> <span>লিংক তৈরির ড্যাশবোর্ড</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold gold-text font-serif">
+        অতিথি লিংক জেনারেটর
+      </h1>
+      <p class="text-xs text-[#FFF6E5]/70 mt-1">
+        সাকিব হাসান প্রাঙ্গন ও এশা মাহমুদ ভাবনা এর শুভ বিবাহ
+      </p>
+    </div>
+
+    <form id="gen-form" class="space-y-4" onsubmit="event.preventDefault();">
+      
+      <!-- Domain Base URL -->
+      <div>
+        <label class="block text-xs font-semibold text-[#D4AF37] mb-1">
+          🌐 আপনার ওয়েবসাইটের লিংক (Hosted Domain)
+        </label>
+        <input 
+          id="base-url" 
+          type="text" 
+          class="input-box w-full text-xs" 
+          placeholder="https://sakib-weds-easha.netlify.app"
+        />
+        <p class="text-[10px] text-[#FFF6E5]/50 mt-1">
+          *Netlify-তে হোস্ট করার পর যে লিংক পাবেন সেটি এখানে দিন (বা লোকাল টেস্টের লিংক রাখুন)
+        </p>
+      </div>
+
+      <!-- Guest Name -->
+      <div>
+        <label class="block text-xs font-semibold text-[#D4AF37] mb-1">
+          👤 অতিথির নাম (Guest Name)
+        </label>
+        <input 
+          id="guest-name" 
+          type="text" 
+          class="input-box w-full text-sm" 
+          placeholder="যেমন: তানভীর / Tanvir / রহিম সাহেব"
+        />
+      </div>
+
+      <!-- Quick Presets -->
+      <div>
+        <label class="block text-xs font-semibold text-[#D4AF37] mb-1.5">
+          ⚡ দ্রুত নির্বাচন (Quick Presets)
+        </label>
+        <div class="flex flex-wrap gap-1.5">
+          <button type="button" class="preset-btn" onclick="applyPreset('all')">সব ৪টি অনুষ্ঠান</button>
+          <button type="button" class="preset-btn" onclick="applyPreset('wedding')">শুধুমাত্র বিবাহ</button>
+          <button type="button" class="preset-btn" onclick="applyPreset('reception')">শুধুমাত্র সংবর্ধনা</button>
+          <button type="button" class="preset-btn" onclick="applyPreset('holud_reception')">হলুদ + সংবর্ধনা</button>
+          <button type="button" class="preset-btn" onclick="applyPreset('wedding_reception')">বিবাহ + সংবর্ধনা</button>
+        </div>
+      </div>
+
+      <!-- Event Checkboxes -->
+      <div>
+        <label class="block text-xs font-semibold text-[#D4AF37] mb-1.5">
+          📅 আমন্ত্রিত অনুষ্ঠানমালা (যেগুলো অতিথি দেখতে পাবেন)
+        </label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          
+          <label class="event-chip block">
+            <input type="checkbox" id="ev-gh" value="gh" class="hidden" checked onchange="updateLink()" />
+            <div class="p-2.5 rounded-xl border border-[#D4AF37]/30 bg-[#1A050B]/60 flex items-center justify-between text-xs">
+              <div>
+                <p class="font-semibold text-[#FFF6E5]">বরের গায়ে হলুদ</p>
+                <p class="text-[10px] text-[#D4AF37]/80">২৩ ডিসেম্বর ২০২৬</p>
+              </div>
+              <span class="text-xs">🟡</span>
+            </div>
+          </label>
+
+          <label class="event-chip block">
+            <input type="checkbox" id="ev-bh" value="bh" class="hidden" checked onchange="updateLink()" />
+            <div class="p-2.5 rounded-xl border border-[#D4AF37]/30 bg-[#1A050B]/60 flex items-center justify-between text-xs">
+              <div>
+                <p class="font-semibold text-[#FFF6E5]">কনের গায়ে হলুদ</p>
+                <p class="text-[10px] text-[#D4AF37]/80">২৪ ডিসেম্বর ২০২৬</p>
+              </div>
+              <span class="text-xs">🟠</span>
+            </div>
+          </label>
+
+          <label class="event-chip block">
+            <input type="checkbox" id="ev-w" value="w" class="hidden" checked onchange="updateLink()" />
+            <div class="p-2.5 rounded-xl border border-[#D4AF37]/30 bg-[#1A050B]/60 flex items-center justify-between text-xs">
+              <div>
+                <p class="font-semibold text-[#FFF6E5]">শুভ বিবাহ (Wedding)</p>
+                <p class="text-[10px] text-[#D4AF37]/80">২৫ ডিসেম্বর ২০২৬</p>
+              </div>
+              <span class="text-xs">💍</span>
+            </div>
+          </label>
+
+          <label class="event-chip block">
+            <input type="checkbox" id="ev-r" value="r" class="hidden" checked onchange="updateLink()" />
+            <div class="p-2.5 rounded-xl border border-[#D4AF37]/30 bg-[#1A050B]/60 flex items-center justify-between text-xs">
+              <div>
+                <p class="font-semibold text-[#FFF6E5]">বউভাত ও ওয়ালিমা</p>
+                <p class="text-[10px] text-[#D4AF37]/80">২৭ ডিসেম্বর ২০২৬</p>
+              </div>
+              <span class="text-xs">👑</span>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- Max Guests Quota & Language -->
+      <div class="grid grid-cols-2 gap-3 pt-1">
+        <div>
+          <label class="block text-xs font-semibold text-[#D4AF37] mb-1">
+            👥 সদস্য কোটা (Guest Limit)
+          </label>
+          <select id="guest-limit" class="input-box w-full text-xs cursor-pointer" onchange="updateLink()">
+            <option value="">উন্মুক্ত (অতিথি নিজে নির্বাচন করবেন)</option>
+            <option value="1">১ জন (Strictly 1)</option>
+            <option value="2">সর্বোচ্চ ২ জন</option>
+            <option value="3">সর্বোচ্চ ৩ জন</option>
+            <option value="4">সর্বোচ্চ ৪ জন</option>
+            <option value="5">সর্বোচ্চ ৫ জন</option>
+            <option value="6">সর্বোচ্চ ৬ জন</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-[#D4AF37] mb-1">
+            🌐 ডিফল্ট ভাষা (Language)
+          </label>
+          <select id="lang-pref" class="input-box w-full text-xs cursor-pointer" onchange="updateLink()">
+            <option value="bn">বাংলা (Default)</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- Output Box -->
+    <div class="mt-6 pt-5 border-t border-[#D4AF37]/25 space-y-4">
+      
+      <!-- Generated Link -->
+      <div>
+        <label class="block text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-1">
+          🔗 তৈরি হওয়া লিংক:
+        </label>
+        <div class="flex items-center gap-2">
+          <input 
+            id="output-link" 
+            type="text" 
+            readonly 
+            class="input-box flex-1 text-xs font-mono text-[#FCF6BA] select-all cursor-pointer" 
+            onclick="this.select();"
+          />
+          <button 
+            type="button" 
+            id="btn-copy-link" 
+            class="gold-btn px-4 py-2.5 rounded-xl text-xs whitespace-nowrap"
+            onclick="copyLink()"
+          >
+            কপি লিংক 📋
+          </button>
+        </div>
+      </div>
+
+      <!-- WhatsApp Invitation Message -->
+      <div>
+        <label class="block text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-1">
+          💬 হোয়াটসঅ্যাপের জন্য প্রস্তুত মেসেজ:
+        </label>
+        <textarea 
+          id="output-msg" 
+          rows="4" 
+          readonly 
+          class="input-box w-full text-xs text-[#FFF6E5]/90 leading-relaxed font-sans"
+        ></textarea>
+        
+        <div class="flex items-center gap-2 mt-2">
+          <button 
+            type="button" 
+            id="btn-copy-msg" 
+            class="gold-btn flex-1 py-2.5 rounded-xl text-xs"
+            onclick="copyMessage()"
+          >
+            মেসেজ কপি করুন 💬
+          </button>
+
+          <a 
+            id="btn-open-wa" 
+            href="#" 
+            target="_blank" 
+            class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md"
+          >
+            <span>WhatsApp-এ শেয়ার ↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Back to card link -->
+    <div class="text-center mt-6">
+      <a href="./index.html" class="text-xs text-[#D4AF37] hover:underline">
+        ← মূল আমন্ত্রণপত্রে ফিরে যান
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize base URL to current origin
+    const defaultOrigin = window.location.origin + window.location.pathname.replace(/\/generator\.html.*$/, '/');
+    const baseUrlInput = document.getElementById('base-url');
+    baseUrlInput.value = defaultOrigin;
+
+    // Detect events and build query
+    function updateLink() {
+      const baseUrl = baseUrlInput.value.trim().replace(/\/+$/, '') + '/';
+      const name = document.getElementById('guest-name').value.trim();
+      const limit = document.getElementById('guest-limit').value;
+      const lang = document.getElementById('lang-pref').value;
+
+      const gh = document.getElementById('ev-gh').checked;
+      const bh = document.getElementById('ev-bh').checked;
+      const w = document.getElementById('ev-w').checked;
+      const r = document.getElementById('ev-r').checked;
+
+      const params = new URLSearchParams();
+
+      if (name) {
+        // Detect Bengali vs English
+        const isBengali = /[\u0980-\u09FF]/.test(name);
+        if (isBengali) {
+          params.set('b', name);
+        } else {
+          params.set('to', name);
+        }
+      }
+
+      // Events logic
+      if (gh && bh && w && r) {
+        params.set('e', 'all');
+      } else {
+        const events = [];
+        if (gh) events.push('gh');
+        if (bh) events.push('bh');
+        if (w) events.push('w');
+        if (r) events.push('r');
+        if (events.length > 0) {
+          params.set('e', events.join(','));
+        }
+      }
+
+      if (limit) {
+        params.set('g', limit);
+      }
+
+      if (lang === 'en') {
+        params.set('lang', 'en');
+      }
+
+      const queryString = params.toString();
+      const fullUrl = queryString ? `${baseUrl}?${queryString}` : baseUrl;
+
+      document.getElementById('output-link').value = fullUrl;
+
+      // Build WhatsApp message
+      const displayName = name || 'সম্মানিত অতিথি';
+      const eventNames = [];
+      if (gh) eventNames.push('বরের গায়ে হলুদ (২৩ ডিসে)');
+      if (bh) eventNames.push('কনের গায়ে হলুদ (২৪ ডিসে)');
+      if (w) eventNames.push('শুভ বিবাহ (২৫ ডিসে)');
+      if (r) eventNames.push('বউভাত ও ওয়ালিমা (২৭ ডিসে)');
+
+      let eventSummary = eventNames.length === 4 
+        ? 'সকল শুভ অনুষ্ঠানমালায়' 
+        : eventNames.join(' ও ');
+
+      const waText = 
+`আসসালামু আলাইকুম ${displayName},
+আমাদের জীবনের এক বিশেষ মুহূর্তে আপনাদের আন্তরিক দোয়া ও সানন্দ উপস্থিতি কামনা করছি।
+
+অনুষ্ঠান: ${eventSummary}
+আপনার বিশেষ আমন্ত্রণপত্রটি দেখতে নিচের লিংকে স্পর্শ করুন:
+${fullUrl}
+
+স্নেহ, শ্রদ্ধা ও দোয়ায়:
+সাকিব ও ভাবনা 💍`;
+
+      document.getElementById('output-msg').value = waText;
+      document.getElementById('btn-open-wa').href = `https://wa.me/?text=${encodeURIComponent(waText)}`;
+    }
+
+    // Apply Presets
+    function applyPreset(preset) {
+      const gh = document.getElementById('ev-gh');
+      const bh = document.getElementById('ev-bh');
+      const w = document.getElementById('ev-w');
+      const r = document.getElementById('ev-r');
+
+      gh.checked = false;
+      bh.checked = false;
+      w.checked = false;
+      r.checked = false;
+
+      if (preset === 'all') {
+        gh.checked = true; bh.checked = true; w.checked = true; r.checked = true;
+      } else if (preset === 'wedding') {
+        w.checked = true;
+      } else if (preset === 'reception') {
+        r.checked = true;
+      } else if (preset === 'holud_reception') {
+        gh.checked = true; r.checked = true;
+      } else if (preset === 'wedding_reception') {
+        w.checked = true; r.checked = true;
+      }
+
+      updateLink();
+    }
+
+    // Copy handlers
+    function copyLink() {
+      const input = document.getElementById('output-link');
+      navigator.clipboard.writeText(input.value).then(() => {
+        const btn = document.getElementById('btn-copy-link');
+        const orig = btn.innerText;
+        btn.innerText = 'কপি হয়েছে! ✅';
+        setTimeout(() => btn.innerText = orig, 2000);
+      });
+    }
+
+    function copyMessage() {
+      const textarea = document.getElementById('output-msg');
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        const btn = document.getElementById('btn-copy-msg');
+        const orig = btn.innerText;
+        btn.innerText = 'মেসেজ কপি হয়েছে! ✅';
+        setTimeout(() => btn.innerText = orig, 2000);
+      });
+    }
+
+    // Bind dynamic listeners
+    document.getElementById('guest-name').addEventListener('input', updateLink);
+    baseUrlInput.addEventListener('input', updateLink);
+
+    // Initial render
+    updateLink();
+  </script>
+</body>
+</html>

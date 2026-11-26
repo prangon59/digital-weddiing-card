@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cream: #FFF6E5;
+    --color-marigold: #F4A300;
+    --color-maroon: #7A1F2B;
+    --color-maroon-dark: #2B0E14;
+    --color-sage: #8FA98A;
+    --color-gold: #C9A24B;
+    --color-gold-bright: #F7D070;
+    --color-ink: #382226;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #root {
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: #24090F;
+    color: #FFF6E5;
+    min-height: 100dvh;
+    font-family: "Hind Siliguri", "Tiro Bangla", sans-serif;
+  }
+
+  /* Correct line-height and rendering for Bengali typography */
+  .font-banglaBody {
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+  }
+
+  .font-banglaHeading {
+    line-height: 1.35;
+  }
+}
+
+/* Custom royal scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #1C050B;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A24B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F4A300;
+}
+
+/* 3D Perspectives & Transforms */
+.perspective-800 {
+  perspective: 800px;
+}
+.perspective-1000 {
+  perspective: 1000px;
+}
+.perspective-1200 {
+  perspective: 1200px;
+}
+.perspective-1500 {
+  perspective: 1500px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Gold Foil Text Effect */
+.gold-foil-text {
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(90deg, #8F6B20 0%, #C9A24B 25%, #FFF0BF 50%, #C9A24B 75%, #8F6B20 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerGold 6s linear infinite;
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 3D Royal Card Shadow */
+.shadow-3d-card {
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.65), 
+    0 0 25px rgba(201, 162, 75, 0.22),
+    inset 0 1px 1px rgba(255, 246, 229, 0.25);
+}
+
+.shadow-3d-gold {
+  box-shadow: 
+    0 10px 30px rgba(201, 162, 75, 0.35),
+    0 0 15px rgba(244, 163, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Gentle floating animation */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-soft-float {
+  animation: softFloat 5s ease-in-out infinite;
+}
+
+/* Audio Ripple Ring Effect */
+@keyframes rippleWave {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: rippleWave 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Safe area padding for mobile notch/home bar */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 16px);
+}

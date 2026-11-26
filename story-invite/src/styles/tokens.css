@@ -1,0 +1,34 @@
+:root {
+  /* Modern 3-Color Luxury Palette: Deep Maroon, Ivory-Gold & Midnight Espresso */
+  --green-900: #260612;
+  --green-700: #4F0E26;
+  --green-300: #E5C17B;
+  --maroon: #4F0E26;
+  --red: #6B1230;
+  --yellow: #D4AF37;
+  --orange: #B88A44;
+  --cream: #FFF7EC;
+  --teal: #3A091B;
+  --blue: #4F0E26;
+  --indigo-900: #1A0812;
+  --purple: #3A091B;
+  --gold: #D4AF37;
+
+  /* Derived UI tokens */
+  --ink-dark: #1E0B12;
+  --ink-cream: #FFF7EC;
+  --road-height: clamp(160px, 26dvh, 232px);
+  --phone-max-w: 430px;
+
+  /* Dynamic Sky Gradient (Champagne Ivory -> Plum Dusk -> Midnight) */
+  --sky-top: #F5ECE4;
+  --sky-mid: #E6D2C7;
+  --sky-bottom: #C8A5AA;
+
+  /* Font Stacks */
+  --font-display: 'Galada', 'Tiro Bangla', serif;
+  --font-heading: 'Baloo Da 2', 'Hind Siliguri', sans-serif;
+  --font-body: 'Hind Siliguri', sans-serif;
+  --font-serif: 'Tiro Bangla', serif;
+  --font-arabic: 'Amiri', serif;
+}

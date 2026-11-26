@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1C050B" />
+  <meta name="description" content="Sakib Hassan Prangon & Easha Mahmud Bhabna Wedding Invitation / সাকিব হাসান প্রাঙ্গন ও এশা মাহমুদ ভাবনা এর শুভ বিবাহ আমন্ত্রণ" />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:site_name" content="Sakib & Easha Wedding (v2)" />
+  <meta property="og:title" content="Sakib ❤ Easha | Royal Wedding Invitation" />
+  <meta property="og:description" content="We joyfully invite you to celebrate the wedding ceremonies of Sakib Hassan Prangon & Easha Mahmud Bhabna." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../public/images/og-share.jpg" />
+
+  <title>Sakib ❤ Easha | Royal Wedding Invitation (v2)</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💍%3C/text%3E%3C/svg%3E" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN for instant utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maroon: {
+              DEFAULT: '#7A1F2B',
+              900: '#140307',
+              800: '#1C050B',
+              700: '#24090F',
+              600: '#350F18',
+              500: '#4A1220',
+              400: '#7A1F2B',
+            },
+            gold: {
+              DEFAULT: '#D4AF37',
+              bright: '#F4A300',
+              light: '#FCF6BA',
+            },
+            cream: {
+              DEFAULT: '#FFF6E5',
+              100: '#FFF6E5',
+              200: '#F5EADB',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- DESKTOP AMBIENT BACKDROP -->
+  <div class="desktop-ambient-glow" aria-hidden="true"></div>
+
+  <!-- FIXED TOP CONTROLS (English | বাংলা Toggle & Music Button side by side in one row) -->
+  <header class="top-controls-header">
+    <nav class="top-controls-pill" aria-label="Language and Sound Controls">
+      <!-- English Toggle -->
+      <button id="lang-btn-en" class="lang-btn" aria-label="View in English">
+        English
+      </button>
+
+      <!-- Divider -->
+      <span class="control-separator" aria-hidden="true"></span>
+
+      <!-- Bangla Toggle -->
+      <button id="lang-btn-bn" class="lang-btn active font-bangla" aria-label="বাংলায় দেখুন">
+        বাংলা
+      </button>
+
+      <!-- Divider -->
+      <span class="control-separator" aria-hidden="true"></span>
+
+      <!-- Sound Button -->
+      <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Play Music" title="Play Music">
+        <span id="music-ripple" class="music-ripple-effect" style="display: none;"></span>
+        <span id="music-icon">
+          <!-- Mute icon default -->
+          <svg class="w-5 h-5 text-[#FFF6E5]/75" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- SCENE 1: INTERACTIVE 3D ENVELOPE MODAL OVERLAY -->
+  <div id="envelope-modal" class="envelope-overlay" role="dialog" aria-modal="true" aria-label="Interactive Wedding Envelope">
+    <div class="envelope-3d-box">
+      <!-- Textured Background -->
+      <div class="envelope-textured-bg"></div>
+
+      <!-- Debossed Floral Corner Motifs -->
+      <div class="debossed-floral-top">
+        <svg width="180" height="70" viewBox="0 0 180 70" fill="none" stroke="#D4AF37" stroke-width="1.2">
+          <path d="M 90,10 C 60,30 40,15 15,35 C 35,45 65,40 90,60 C 115,40 145,45 165,35 C 140,15 120,30 90,10 Z" />
+          <circle cx="90" cy="35" r="5" fill="#D4AF37" fill-opacity="0.3" />
+          <circle cx="70" cy="28" r="2.5" fill="#D4AF37" />
+          <circle cx="110" cy="28" r="2.5" fill="#D4AF37" />
+        </svg>
+      </div>
+
+      <div class="debossed-floral-bottom">
+        <svg width="180" height="70" viewBox="0 0 180 70" fill="none" stroke="#D4AF37" stroke-width="1.2">
+          <path d="M 90,60 C 60,40 40,55 15,35 C 35,25 65,30 90,10 C 115,30 145,25 165,35 C 140,55 120,40 90,60 Z" />
+          <circle cx="90" cy="35" r="5" fill="#D4AF37" fill-opacity="0.3" />
+          <circle cx="70" cy="42" r="2.5" fill="#D4AF37" />
+          <circle cx="110" cy="42" r="2.5" fill="#D4AF37" />
+        </svg>
+      </div>
+
+      <!-- Shimmering Sparkles -->
+      <span class="envelope-sparkle" style="top: 25%; left: 18%;">✦</span>
+      <span class="envelope-sparkle" style="top: 30%; right: 20%; animation-delay: 0.8s;">✦</span>
+      <span class="envelope-sparkle" style="bottom: 28%; left: 24%; animation-delay: 1.6s;">✦</span>
+      <span class="envelope-sparkle" style="bottom: 25%; right: 22%; animation-delay: 1.1s;">✦</span>
+
+      <!-- 3D Envelope Flaps -->
+      <div id="envelope-flap-top" class="envelope-flap-top"></div>
+      <div class="envelope-flap-left"></div>
+      <div class="envelope-flap-right"></div>
+      <div class="envelope-flap-bottom"></div>
+
+      <!-- Golden Light Flare Burst -->
+      <div id="golden-flare-burst" class="golden-flare-burst"></div>
+
+      <!-- Center Monogram Wax Seal -->
+      <div class="wax-seal-wrapper">
+        <button id="wax-seal-btn" class="wax-seal-btn" aria-label="Open wedding invitation envelope">
+          <svg viewBox="0 0 200 200" width="100%" height="100%">
+            <defs>
+              <radialGradient id="waxOuterGrad" cx="35%" cy="30%" r="75%">
+                <stop offset="0%" stop-color="#FFF2A3" />
+                <stop offset="25%" stop-color="#E5BE53" />
+                <stop offset="55%" stop-color="#B38728" />
+                <stop offset="85%" stop-color="#7A4F0D" />
+                <stop offset="100%" stop-color="#472A00" />
+              </radialGradient>
+              <radialGradient id="waxInnerGrad" cx="40%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#FCE789" />
+                <stop offset="35%" stop-color="#CFA132" />
+                <stop offset="75%" stop-color="#996E14" />
+                <stop offset="100%" stop-color="#5E3902" />
+              </radialGradient>
+              <linearGradient id="stampTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFFAD1" />
+                <stop offset="50%" stop-color="#F2CB60" />
+                <stop offset="100%" stop-color="#8F5E0A" />
+              </linearGradient>
+            </defs>
+
+            <!-- Organic Molten Wax Edge -->
+            <path d="M 192,100 C 193.1,113.4 192.7,130.2 186.5,141.7 C 180.3,153.2 165.8,160.3 154.9,168.8 C 144,177.3 133.9,188.2 121.1,192.6 C 108.3,197 91,199.3 78.2,195.5 C 65.4,191.7 55,178.7 44.5,169.6 C 34,160.5 21.2,152.4 15.3,140.8 C 9.4,129.2 9.5,113.8 9,100 C 8.6,86.2 6.6,69.4 12.6,57.9 C 18.6,46.4 34.1,39.6 45.1,31.2 C 56.2,22.8 66.4,10.6 78.9,7.4 C 91.4,4.3 106.5,9.4 120,12.3 C 133.5,15.2 149.9,16.7 159.9,24.9 C 169.9,33.1 174.9,48.9 180.2,61.4 C 185.5,73.9 191,86.6 192,100 Z" fill="url(#waxOuterGrad)" />
+
+            <!-- Ridge & Rim -->
+            <circle cx="100" cy="100" r="74" fill="none" stroke="#FFE885" stroke-width="4" />
+            <circle cx="100" cy="100" r="70" fill="url(#waxInnerGrad)" />
+            <circle cx="100" cy="100" r="63" fill="none" stroke="#FFE885" stroke-width="2" stroke-dasharray="2 4" opacity="0.8" />
+
+            <!-- Monogram "S & E" -->
+            <text x="100" y="103" text-anchor="middle" font-family="'Cormorant Garamond', 'Cinzel', serif" font-size="38" font-weight="bold" letter-spacing="2" fill="url(#stampTextGrad)">
+              S &amp; E
+            </text>
+
+            <!-- Subtitle "শুভ বিবাহ" -->
+            <text x="100" y="125" text-anchor="middle" font-family="'Hind Siliguri', sans-serif" font-size="12" font-weight="bold" fill="url(#stampTextGrad)">
+              শুভ বিবাহ
+            </text>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Pulse Prompt -->
+      <div class="envelope-tap-prompt">
+        <div id="envelope-guest-badge" style="display: none; margin-bottom: 8px;"></div>
+        <div class="pulse-badge">
+          <span data-i18n="envelopeHint">আমন্ত্রণপত্রটি খুলতে সিলমোহরে স্পর্শ করুন</span>
+        </div>
+        <p class="text-[11px] text-[#24090F]/70 mt-2 font-medium" data-i18n="envelopeSubhint">
+          স্পর্শ করুন বা সোয়াইপ করুন
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN SCROLLABLE APP (Centered Phone Frame) -->
+  <div class="page-container">
+    <main class="phone-frame">
+
+      <!-- SCENE 2: HERO ARCHWAY & WELCOME -->
+      <section id="hero" class="hero-scene scroll-scene">
+        <div class="archway-container">
+          <!-- Hanging Lantern Left -->
+          <div class="hanging-lantern lantern-left">
+            <svg width="34" height="65" viewBox="0 0 34 65" fill="none" class="lantern-glow">
+              <line x1="17" y1="0" x2="17" y2="18" stroke="#D4AF37" stroke-width="1.5" />
+              <path d="M 9,18 L 25,18 L 29,32 L 23,48 L 11,48 L 5,32 Z" fill="#4A1220" stroke="#D4AF37" stroke-width="1.5" />
+              <circle cx="17" cy="33" r="5" fill="#FFF2A3" />
+              <polygon points="17,48 14,56 20,56" fill="#D4AF37" />
+            </svg>
+          </div>
+
+          <!-- Hanging Lantern Right -->
+          <div class="hanging-lantern lantern-right">
+            <svg width="34" height="65" viewBox="0 0 34 65" fill="none" class="lantern-glow">
+              <line x1="17" y1="0" x2="17" y2="18" stroke="#D4AF37" stroke-width="1.5" />
+              <path d="M 9,18 L 25,18 L 29,32 L 23,48 L 11,48 L 5,32 Z" fill="#4A1220" stroke="#D4AF37" stroke-width="1.5" />
+              <circle cx="17" cy="33" r="5" fill="#FFF2A3" />
+              <polygon points="17,48 14,56 20,56" fill="#D4AF37" />
+            </svg>
+          </div>
+
+          <!-- Couple Art & Arch Frame -->
+          <div class="couple-art-frame">
+            <!-- Bismillah Header -->
+            <p class="font-arabic text-xl sm:text-2xl text-[#D4AF37] font-bold tracking-wider mb-2">
+              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </p>
+
+            <span class="text-xs uppercase tracking-widest text-[#D4AF37]/85 font-semibold" data-i18n="heroTag">
+              শুভ বিবাহ ও শুভ পরিণয়
+            </span>
+
+            <!-- Couple Names -->
+            <div class="hero-couple-names">
+              <h1 id="hero-groom-name" class="couple-name-title gold-foil-text font-serif">
+                সাকিব হাসান প্রাঙ্গন
+              </h1>
+              <div class="hero-ampersand font-serif">❦ ও ❦</div>
+              <h1 id="hero-bride-name" class="couple-name-title gold-foil-text font-serif">
+                এশা মাহমুদ ভাবনা
+              </h1>
+            </div>
+
+            <!-- Personalized Guest Honor Badge (if provided in link) -->
+            <div id="hero-guest-badge" class="my-2" style="display: none;"></div>
+
+            <!-- Royal Islamic Arch & Couple Silhouette Artwork -->
+            <div class="relative w-full max-w-[280px] h-[220px] mx-auto mt-4 rounded-t-full border-t-2 border-x-2 border-[#D4AF37]/50 overflow-hidden flex items-end justify-center bg-gradient-to-t from-[#1C050B] via-[#350F18]/80 to-transparent">
+              <!-- Palace/Mosque Domes in Background Silhouette -->
+              <svg viewBox="0 0 300 220" width="100%" height="100%" class="absolute inset-0 pointer-events-none opacity-45">
+                <path d="M 30,160 L 30,120 Q 40,80 50,120 L 50,160 Z" fill="#D4AF37" opacity="0.3" />
+                <path d="M 250,160 L 250,120 Q 260,80 270,120 L 270,160 Z" fill="#D4AF37" opacity="0.3" />
+                <!-- Grand Central Mosque Dome -->
+                <path d="M 110,160 C 110,95 150,70 150,55 C 150,70 190,95 190,160 Z" fill="#FFEAA3" opacity="0.25" />
+                <line x1="150" y1="40" x2="150" y2="55" stroke="#FFEAA3" stroke-width="2" opacity="0.5" />
+                <path d="M 147,40 Q 150,34 153,40 Z" fill="#FFEAA3" opacity="0.5" />
+              </svg>
+
+              <!-- Couple Standing Together (Traditional Sherwani & Bridal Gown / Dupatta) -->
+              <svg viewBox="0 0 200 170" width="100%" height="150" class="relative z-10">
+                <!-- Groom (Sherwani) -->
+                <g transform="translate(68, 30)">
+                  <!-- Head -->
+                  <circle cx="20" cy="12" r="9" fill="#E5C79E" />
+                  <!-- Groom Pagri/Turban -->
+                  <path d="M 11,10 Q 20,2 29,10 Q 26,5 20,4 Z" fill="#D4AF37" />
+                  <!-- Sherwani Body -->
+                  <path d="M 11,21 L 29,21 L 34,75 L 6,75 Z" fill="#F4F0E8" stroke="#D4AF37" stroke-width="0.8" />
+                  <!-- Legs/Pajama -->
+                  <rect x="10" y="75" width="8" height="40" fill="#EAE4D7" />
+                  <rect x="22" y="75" width="8" height="40" fill="#EAE4D7" />
+                </g>
+
+                <!-- Bride (Lehenga & Trailing Veil) -->
+                <g transform="translate(104, 34)">
+                  <!-- Head -->
+                  <circle cx="18" cy="11" r="8" fill="#E5C79E" />
+                  <!-- Bridal Jewelry / Hair -->
+                  <path d="M 11,9 Q 18,5 25,9 Z" fill="#24090F" />
+                  <!-- Bridal Dress Top -->
+                  <path d="M 11,19 L 25,19 L 27,45 L 9,45 Z" fill="#7A1F2B" stroke="#D4AF37" stroke-width="0.8" />
+                  <!-- Trailing Flowing Red & Gold Dupatta / Veil -->
+                  <path d="M 10,14 C 3,45 -10,95 -14,115 C 5,110 32,108 48,115 C 44,85 30,45 26,14 Z" fill="#8C1D2D" opacity="0.85" stroke="#D4AF37" stroke-width="0.8" />
+                  <path d="M 7,45 Q 18,48 29,45 L 38,112 L -2,112 Z" fill="#992235" stroke="#D4AF37" stroke-width="0.8" />
+                </g>
+              </svg>
+            </div>
+
+            <!-- Scroll Down Cue -->
+            <a href="#date-scratch" class="scroll-down-cue">
+              <span data-i18n="scrollCue">নিচে স্ক্রল করুন</span>
+              <span>∨</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 3: SCRATCH-TO-REVEAL DATE CARD -->
+      <section id="date-scratch" class="scratch-section scroll-scene">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="theDateHeading">
+          শুভ তারিখ
+        </span>
+        <h2 id="date-scratch-main-title" class="text-2xl font-bold font-serif gold-foil-text mt-1">
+          ✦ ২৫ ডিসেম্বর ২০২৬ ✦
+        </h2>
+        <p id="scratch-card-hint" class="text-xs text-[#FFF6E5]/75 mt-2 font-medium" data-i18n="scratchInstruction">
+          ✦ তারিখ দেখতে কার্ডটি ঘষুন ✦
+        </p>
+
+        <!-- HTML5 Canvas Scratch Grid -->
+        <div id="scratch-cards-grid" class="scratch-cards-grid">
+          <!-- Dynamically populated with Day, Month, Year canvases -->
+        </div>
+
+        <!-- Accessible Reveal All Button -->
+        <button id="scratch-reveal-btn" class="scratch-reveal-btn mt-2" data-i18n="scratchAllBtn">
+          তারিখ দেখুন
+        </button>
+      </section>
+
+      <!-- SCENE 4: FORMAL INVITATION & PARENTS' BLESSINGS -->
+      <section id="invitation" class="scroll-scene">
+        <div class="formal-card">
+          <!-- Filigree Corners -->
+          <div class="corner-filigree corner-tl"></div>
+          <div class="corner-filigree corner-tr"></div>
+          <div class="corner-filigree corner-bl"></div>
+          <div class="corner-filigree corner-br"></div>
+
+          <!-- Bismillah -->
+          <p class="font-arabic text-xl text-[#D4AF37] font-bold mb-2">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+          </p>
+
+          <!-- Sacred Quranic Verse -->
+          <div class="quran-box">
+            <p class="font-arabic text-sm text-[#FFF6E5]/95 leading-relaxed">
+              هُوَ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَجَعَلَ مِنْهَا زَوْجَهَا لِيَسْكُنَ إِلَيْهَا
+            </p>
+            <p class="text-[11px] text-[#D4AF37] italic mt-1.5 leading-snug" data-i18n="quranVerseText">
+              “তিনিই সেই সত্তা যিনি তোমাদের এক সত্তা হতে সৃষ্টি করেছেন এবং তা থেকে সৃষ্টি করেছেন তার সঙ্গিনীকে, যেন সে তার সান্নিধ্যে প্রশান্তি পায়।” (সূরা আল-আ'রাফ ৭:১৮৯)
+            </p>
+          </div>
+
+          <h2 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mt-3" data-i18n="invitationHeading">
+            আমাদের শুভ বিবাহ অনুষ্ঠানে আপনাকে সাদর আমন্ত্রণ
+          </h2>
+
+          <p class="text-xs sm:text-sm text-[#FFF6E5]/90 mt-2 leading-relaxed font-serif" data-i18n="invitationLetterBody">
+            আল্লাহর অশেষ রহমতে ও পারিবারিক আনন্দের সাথে আমরা আপনাকে ও আপনার পরিবারকে আমাদের বিয়েতে আন্তরিক আমন্ত্রণ জানাচ্ছি। আপনার সানন্দ উপস্থিতি ও প্রাণখোলা দোয়া আমাদের আগামী দিনগুলোকে আলোকিত করে রাখবে।
+          </p>
+
+          <!-- Couple Names Centerpiece -->
+          <div class="my-5 py-2 border-y border-[#D4AF37]/30">
+            <h3 id="groom-name" class="text-2xl font-bold font-serif gold-foil-text">
+              সাকিব হাসান প্রাঙ্গন
+            </h3>
+            <span class="text-xs text-[#D4AF37] block my-1 font-serif">❦ ও ❦</span>
+            <h3 id="bride-name" class="text-2xl font-bold font-serif gold-foil-text">
+              এশা মাহমুদ ভাবনা
+            </h3>
+          </div>
+
+          <!-- Parents' Section -->
+          <div class="parents-grid">
+            <div class="border-r border-[#D4AF37]/25 pr-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37] block" data-i18n="sonOf">
+                বরের পিতা-মাতা
+              </span>
+              <p id="groom-parents" class="text-xs font-semibold text-[#FFF6E5] mt-1 leading-snug">
+                মোঃ মমতাজ হাসান ও শামীমা হাসান (পাখি)
+              </p>
+              <p class="text-[10px] text-[#FFF6E5]/60 mt-0.5">খুলনা, বাংলাদেশ</p>
+            </div>
+
+            <div class="pl-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37] block" data-i18n="daughterOf">
+                কনের পিতা-মাতা
+              </span>
+              <p id="bride-parents" class="text-xs font-semibold text-[#FFF6E5] mt-1 leading-snug">
+                সাইফুদ্দিন মাহমুদ ও শাহানা জাহান
+              </p>
+              <p class="text-[10px] text-[#FFF6E5]/60 mt-0.5">খুলনা, বাংলাদেশ</p>
+            </div>
+          </div>
+
+          <p class="text-xs font-semibold text-[#D4AF37] mt-2" data-i18n="invitationClosing">
+            আন্তরিক শ্রদ্ধা ও দোয়াপ্রার্থী
+          </p>
+        </div>
+      </section>
+
+      <!-- SCENE 5: VERTICAL ITINERARY & LIVE COUNTDOWN -->
+      <section id="timeline" class="scroll-scene">
+        <div class="text-center mb-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="timelineHeading">
+            অনুষ্ঠানসূচি
+          </span>
+          <h2 class="text-2xl font-bold font-serif gold-foil-text mt-1" data-i18n="timelineHeading">
+            Wedding Itinerary
+          </h2>
+          <p class="text-xs text-[#FFF6E5]/75 mt-1" data-i18n="timelineSubheading">
+            প্রতিটি পর্বে আপনার উপস্থিতি আমাদের ধন্য করবে
+          </p>
+        </div>
+
+        <!-- Vertical Timeline Container (Filtered by guest link ?e=...) -->
+        <div id="timeline-events-container" class="timeline-container">
+          <!-- Filled dynamically by JavaScript -->
+        </div>
+
+        <!-- LIVE COUNTDOWN TIMER BLOCK -->
+        <div class="mt-12 text-center">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="countdownHeading">
+            শুভ ক্ষণের ক্ষণগণনা
+          </span>
+          <h3 id="countdown-target-event" class="text-lg font-bold text-[#FFF6E5] mt-1 font-serif">
+            The Celebration Begins
+          </h3>
+
+          <!-- Active 4-block countdown -->
+          <div id="countdown-active-block" class="countdown-grid">
+            <div class="countdown-box">
+              <span id="countdown-days" class="countdown-val gold-foil-text">00</span>
+              <span class="countdown-lbl" data-i18n="daysLabel">দিন</span>
+            </div>
+            <div class="countdown-box">
+              <span id="countdown-hours" class="countdown-val gold-foil-text">00</span>
+              <span class="countdown-lbl" data-i18n="hoursLabel">ঘণ্টা</span>
+            </div>
+            <div class="countdown-box">
+              <span id="countdown-minutes" class="countdown-val gold-foil-text">00</span>
+              <span class="countdown-lbl" data-i18n="minutesLabel">মিনিট</span>
+            </div>
+            <div class="countdown-box">
+              <span id="countdown-seconds" class="countdown-val gold-foil-text">00</span>
+              <span class="countdown-lbl" data-i18n="secondsLabel">সেকেন্ড</span>
+            </div>
+          </div>
+
+          <!-- Expired Married State -->
+          <div id="countdown-expired-block" class="p-6 rounded-2xl bg-[#2B0E14] border border-[#D4AF37] mt-4" style="display: none;">
+            <h4 class="text-xl font-bold gold-foil-text" data-i18n="marriedStateHeading">
+              আলহামদুলিল্লাহ্‌, আমরা বিবাহবন্ধনে আবদ্ধ!
+            </h4>
+            <p class="text-xs text-[#FFF6E5]/80 mt-1" data-i18n="marriedStateSubtext">
+              আমাদের নতুন জীবনের শুরুতে পাশে থাকা ও দোয়ার জন্য আন্তরিক ধন্যবাদ।
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 6: VENUE LOCATION & GOOGLE MAPS -->
+      <section id="location" class="scroll-scene">
+        <div class="venue-card">
+          <div class="text-center mb-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="locationHeading">
+              অনুষ্ঠানস্থল
+            </span>
+            <h3 class="text-xl font-bold font-serif gold-foil-text mt-0.5">
+              Khulna, Bangladesh
+            </h3>
+            <p class="text-xs text-[#FFF6E5]/80 mt-0.5 font-medium">
+              Family Residence / Venue (পারিবারিক বাসভবন / অনুষ্ঠানস্থল)
+            </p>
+          </div>
+
+          <!-- Embedded Map -->
+          <div class="map-wrapper">
+            <iframe
+              src="https://maps.google.com/maps?q=22.808816992132105,89.54705054834844&hl=en&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Khulna Venue Location Map"
+            ></iframe>
+          </div>
+
+          <!-- Direct Google Maps Button -->
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=22.808816992132105,89.54705054834844"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold-primary"
+          >
+            <span>🗺️</span>
+            <span data-i18n="openInMapsBtn">গুগল ম্যাপে দিকনির্দেশনা ↗</span>
+          </a>
+
+          <!-- Travel & Family Assistance Contact -->
+          <div class="mt-4 pt-3 border-t border-[#D4AF37]/20 flex items-center justify-between gap-3 text-xs">
+            <div>
+              <p class="font-bold text-[#D4AF37]" data-i18n="needAssistanceHeading">যাতায়াত ও অবস্থান সহায়তায়</p>
+              <p class="text-[11px] text-[#FFF6E5]/70">Shamima Hassan (Groom's Mother)</p>
+            </div>
+            <a
+              href="tel:+8801721193070"
+              class="px-3 py-2 rounded-xl bg-[#3D101C] border border-[#D4AF37]/50 text-[#D4AF37] font-bold text-xs flex items-center gap-1.5"
+            >
+              <span>📞</span>
+              <span>+8801721193070</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 7: DRESS CODE & COLOR PALETTE INSPIRATION -->
+      <section id="dress-code" class="scroll-scene text-center">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="dressCodeHeading">
+          পোশাকের নির্দেশিকা
+        </span>
+        <h2 class="text-2xl font-bold font-serif gold-foil-text mt-1">
+          Dress Code
+        </h2>
+
+        <!-- Traditional Attire Illustrations (Groom, Bride, Guests) -->
+        <div class="my-4 py-2 flex items-center justify-center gap-2">
+          <svg viewBox="0 0 280 120" width="100%" height="110" class="max-w-[320px] mx-auto">
+            <!-- 5 Illustrated Attire Figures in Soft Pastels & Traditional Bangladeshi Silhouettes -->
+            <!-- Figure 1: Men Kurta/Pajama -->
+            <g transform="translate(15, 20)">
+              <circle cx="16" cy="10" r="7" fill="#E8C8A2" />
+              <path d="M 9,18 L 23,18 L 27,65 L 5,65 Z" fill="#F4E8D1" stroke="#D4AF37" stroke-width="0.8" />
+              <rect x="8" y="65" width="6" height="30" fill="#EAE4D7" />
+              <rect x="18" y="65" width="6" height="30" fill="#EAE4D7" />
+            </g>
+
+            <!-- Figure 2: Woman in Pastel Peach Saree -->
+            <g transform="translate(65, 22)">
+              <circle cx="16" cy="9" r="6.5" fill="#E8C8A2" />
+              <path d="M 10,16 L 22,16 L 26,45 L 6,45 Z" fill="#F2A490" stroke="#D4AF37" stroke-width="0.8" />
+              <path d="M 6,45 Q 16,48 26,45 L 34,92 L -2,92 Z" fill="#F7B2A1" stroke="#D4AF37" stroke-width="0.8" />
+            </g>
+
+            <!-- Figure 3: Center Couple/Man in Elegant Sherwani -->
+            <g transform="translate(120, 15)">
+              <circle cx="18" cy="11" r="7.5" fill="#E8C8A2" />
+              <path d="M 10,19 L 26,19 L 30,70 L 6,70 Z" fill="#FFF9E6" stroke="#D4AF37" stroke-width="1" />
+              <rect x="9" y="70" width="7" height="35" fill="#F5EFE1" />
+              <rect x="20" y="70" width="7" height="35" fill="#F5EFE1" />
+            </g>
+
+            <!-- Figure 4: Woman in Mint/Sage Lehenga -->
+            <g transform="translate(175, 22)">
+              <circle cx="16" cy="9" r="6.5" fill="#E8C8A2" />
+              <path d="M 10,16 L 22,16 L 26,45 L 6,45 Z" fill="#A8D5BA" stroke="#D4AF37" stroke-width="0.8" />
+              <path d="M 6,45 Q 16,48 26,45 L 34,92 L -2,92 Z" fill="#BFE3CD" stroke="#D4AF37" stroke-width="0.8" />
+            </g>
+
+            <!-- Figure 5: Woman in Lavender Sharara -->
+            <g transform="translate(225, 20)">
+              <circle cx="16" cy="10" r="7" fill="#E8C8A2" />
+              <path d="M 10,18 L 22,18 L 26,48 L 6,48 Z" fill="#D4BEE4" stroke="#D4AF37" stroke-width="0.8" />
+              <path d="M 6,48 Q 16,50 26,48 L 33,94 L -1,94 Z" fill="#E2D1EE" stroke="#D4AF37" stroke-width="0.8" />
+            </g>
+          </svg>
+        </div>
+
+        <p class="text-xs text-[#FFF6E5]/90 max-w-xs mx-auto leading-relaxed" data-i18n="dressCodeIntro">
+          অনুষ্ঠানের নান্দনিকতা বাড়াতে সম্মানিত অতিথিদের ঐতিহ্যবাহী ও মার্জিত উৎসবমুখর পোশাকে আসার সাদর অনুরোধ জানানো হচ্ছে।
+        </p>
+
+        <!-- Recommended Color Palette Swatches -->
+        <div class="mt-4">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="recommendedShades">
+            পছন্দনীয় রঙের শেড
+          </span>
+          <div class="palette-swatches">
+            <span class="swatch-circle" style="background-color: #F4A300;" title="Turmeric / Mustard Yellow"></span>
+            <span class="swatch-circle" style="background-color: #E8A598;" title="Blush Peach"></span>
+            <span class="swatch-circle" style="background-color: #F5E5C9;" title="Warm Cream / Champagne"></span>
+            <span class="swatch-circle" style="background-color: #B8D8C3;" title="Soft Mint / Sage"></span>
+            <span class="swatch-circle" style="background-color: #D6C2E7;" title="Lilac Pastel"></span>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-[#D4AF37]/90 max-w-xs mx-auto mt-2 italic" data-i18n="dressCodeNoteGroomBride">
+          গাঢ় মেরুন বা জমকালো ব্রাইডাল গোল্ড পরিহারের অনুরোধ রইল — যা বর ও কনের জন্য নির্ধারিত।
+        </p>
+      </section>
+
+      <!-- SCENE 8: PERSONALIZED RSVP & WHATSAPP CONFIRMATION -->
+      <section id="rsvp" class="scroll-scene">
+        <div class="rsvp-card">
+          <div class="text-center mb-5">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="rsvpHeading">
+              উপস্থিতি নিশ্চিতকরণ (RSVP)
+            </span>
+            <h2 class="text-2xl font-bold font-serif gold-foil-text mt-1">
+              Confirm Your Presence
+            </h2>
+            <p class="text-xs text-[#FFF6E5]/80 mt-1 leading-relaxed" data-i18n="rsvpSubheading">
+              অতিথিদের সুব্যবস্থাপনা ও সমাদরের সুবিধার্থে অনুগ্রহ করে ২০ ডিসেম্বর ২০২৬ এর পূর্বে উপস্থিতি নিশ্চিত করুন।
+            </p>
+          </div>
+
+          <form id="rsvp-form" class="space-y-4">
+            <!-- Guest Full Name Input -->
+            <div>
+              <label for="rsvp-guest-name" class="block text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-1.5" data-i18n="nameFieldLabel">
+                আপনার নাম
+              </label>
+              <input
+                id="rsvp-guest-name"
+                type="text"
+                class="rsvp-input"
+                placeholder="আপনার পূর্ণ নাম লিখুন"
+                data-i18n-placeholder="nameFieldPlaceholder"
+                required
+              />
+            </div>
+
+            <!-- Ceremonies & Attendee Stepper -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#D4AF37]" data-i18n="eventsSelectionLabel">
+                  অনুষ্ঠান ও উপস্থিতির সংখ্যা
+                </span>
+              </div>
+
+              <!-- Dynamically populated per invited event in link (?e=...) -->
+              <div id="rsvp-events-list" class="space-y-2.5">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+
+            <!-- Submit on WhatsApp Button -->
+            <div class="pt-3">
+              <button type="submit" class="btn-whatsapp-rsvp">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 2C6.494 2 2 6.494 2 12.031c0 1.808.479 3.525 1.319 5.02L2 22l5.097-1.309a10.01 10.01 0 0 0 4.934 1.286h.005c5.536 0 10.03-4.494 10.03-10.031 0-2.678-1.043-5.197-2.936-7.09A9.957 9.957 0 0 0 12.031 2zm5.856 14.188c-.244.685-1.42 1.272-1.956 1.348-.518.075-1.189.106-1.91-.125-.436-.14-1.002-.326-1.73-.642-3.053-1.325-5.048-4.417-5.2-4.619-.153-.203-1.242-1.654-1.242-3.155 0-1.501.786-2.24 1.066-2.545.28-.305.61-.381.813-.381.203 0 .407.002.585.011.188.01.44-.07.687.525.254.61.864 2.109.94 2.262.076.153.127.33.025.534-.102.203-.153.33-.305.508-.153.178-.32.398-.458.534-.153.153-.312.32-.134.626.178.305.79 1.304 1.696 2.112 1.166 1.04 2.148 1.362 2.454 1.515.305.153.483.127.661-.076.178-.203.763-.889.966-1.194.203-.305.407-.254.686-.153.28.102 1.779.839 2.085.992.305.153.508.229.585.356.076.127.076.737-.168 1.422z"/>
+                </svg>
+                <span data-i18n="confirmWhatsAppBtn">Confirm on WhatsApp</span>
+              </button>
+              <p class="text-[11px] text-center text-[#FFF6E5]/70 mt-2 font-bangla" data-i18n="whatsAppHelpText">
+                বোতামে চাপ দিলে আপনার উপস্থিতি তথ্যসহ হোয়াটসঅ্যাপে বার্তা প্রস্তুত হবে।
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer id="footer" class="site-footer">
+        <p class="text-xs text-[#FFF6E5]/80 font-serif max-w-xs mx-auto leading-relaxed" data-i18n="footerGratitude">
+          সাকিব হাসান প্রাঙ্গন ও এশা মাহমুদ ভাবনা এর পরিবারের পক্ষ থেকে অন্তরের গভীর কৃতজ্ঞতা ও ভালোবাসা।
+        </p>
+
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
+          <!-- Replay Button -->
+          <button id="replay-envelope-btn" class="footer-btn">
+            <span data-i18n="footerReplay">Replay Envelope Opening ↺</span>
+          </button>
+
+          <!-- Back to top -->
+          <a href="#hero" class="footer-btn" data-i18n="backToTop">
+            Back to Top ↑
+          </a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Application Bootstrap -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

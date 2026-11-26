@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation Card Visual Redesign Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C9A24B',
+            'gold-bright': '#F7D070',
+            maroon: '#7A1F2B',
+            'maroon-dark': '#2B0E14',
+            cream: '#FFF6E5',
+          },
+          fontFamily: {
+            bangla: ['"Hind Siliguri"', '"Tiro Bangla"', 'sans-serif'],
+            banglaSerif: ['"Noto Serif Bengali"', 'serif'],
+            arabic: ['Amiri', 'serif'],
+            ruqaa: ['"Aref Ruqaa"', 'serif'],
+            engHeading: ['"Cormorant Garamond"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0F0205;
+      color: #FFF6E5;
+      font-family: "Hind Siliguri", "Tiro Bangla", sans-serif;
+    }
+    .gold-foil-text {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gold-glow {
+      text-shadow: 0 0 20px rgba(201, 162, 75, 0.4);
+    }
+    .shadow-3d-card {
+      box-shadow: 
+        0 20px 40px -10px rgba(0, 0, 0, 0.75), 
+        0 0 25px rgba(201, 162, 75, 0.22),
+        inset 0 1px 1px rgba(255, 246, 229, 0.25);
+    }
+    .phone-mockup {
+      width: 390px;
+      max-width: 100%;
+      border-radius: 44px;
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.9), 0 0 0 10px #1a1a1a, 0 0 0 12px #2a2a2a;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8 min-h-screen">
+
+  <!-- Top Controller Toolbar -->
+  <div class="max-w-4xl mx-auto mb-8 bg-[#1F070C] border border-gold/40 rounded-2xl p-4 shadow-xl">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h1 class="text-lg font-bold text-gold font-banglaSerif flex items-center gap-2">
+          <span>✨</span>
+          <span>ইনভিটেশন সেকশন রিডিজাইন প্রিভিউ (Invitation Redesign Preview)</span>
+        </h1>
+        <p class="text-xs text-cream/70 mt-0.5">
+          মোবাইল ফ্রেন্ডলি ও রাজকীয় কার্ড ডিজাইন — বক্স কমে গিয়েছে, নাম ও লেখা সংক্ষিপ্ত এবং মার্জিত।
+        </p>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center gap-2">
+        <button id="btnProposed" onclick="switchTab('proposed')" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-gold to-yellow-500 text-[#24090F] shadow-md">
+          নতুন রিডিজাইন (Proposed)
+        </button>
+        <button id="btnCurrent" onclick="switchTab('current')" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#2B0E14] text-gold/80 border border-gold/30 hover:border-gold">
+          বর্তমান ডিজাইন (Current)
+        </button>
+        <button id="btnSideBySide" onclick="switchTab('sidebyside')" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#2B0E14] text-gold/80 border border-gold/30 hover:border-gold hidden md:block">
+          পাশাপাশি তুলনা (Compare)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="max-w-5xl mx-auto flex justify-center">
+
+    <!-- VIEW 1: PROPOSED REDESIGN (PHONE FRAME) -->
+    <div id="viewProposed" class="w-full flex flex-col items-center">
+      <div class="text-center mb-4">
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/50 text-emerald-400 text-xs font-semibold">
+          ✓ প্রস্তাবিত মোবাইল লেআউট (Recommended Clean Design)
+        </span>
+      </div>
+
+      <!-- Phone Mockup Container -->
+      <div class="phone-mockup bg-[#1C050B] p-4 sm:p-5 overflow-hidden relative">
+        <!-- Status Bar Fake -->
+        <div class="flex justify-between items-center text-[11px] text-cream/50 mb-3 px-2">
+          <span>9:41</span>
+          <div class="flex gap-1.5 items-center">
+            <span>●●●</span>
+            <span>5G</span>
+          </div>
+        </div>
+
+        <!-- 3D Parchment Royal Card -->
+        <div class="relative bg-gradient-to-b from-[#2B0E14] via-[#350F18] to-[#24090F] rounded-3xl p-5 sm:p-6 border-2 border-gold/50 shadow-3d-card text-center">
+          
+          <!-- Ornate Corner Filigrees -->
+          <div class="absolute top-2.5 left-2.5 w-6 h-6 border-t-2 border-l-2 border-gold/60 rounded-tl-lg pointer-events-none"></div>
+          <div class="absolute top-2.5 right-2.5 w-6 h-6 border-t-2 border-r-2 border-gold/60 rounded-tr-lg pointer-events-none"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-6 h-6 border-b-2 border-l-2 border-gold/60 rounded-bl-lg pointer-events-none"></div>
+          <div class="absolute bottom-2.5 right-2.5 w-6 h-6 border-b-2 border-r-2 border-gold/60 rounded-br-lg pointer-events-none"></div>
+
+          <!-- Bismillah Header -->
+          <p class="font-arabic text-xl sm:text-2xl text-gold font-bold mb-3 drop-shadow-sm tracking-wide">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+          </p>
+
+          <!-- Quranic Verse (Card-less & Sleek) -->
+          <div class="mb-5 px-1">
+            <p class="font-arabic text-sm sm:text-base text-cream/95 leading-relaxed">
+              هُوَ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَجَعَلَ مِنْهَا زَوْجَهَا لِيَسْكُنَ إِلَيْهَا
+            </p>
+            <p class="text-[11px] text-gold/80 italic font-bangla mt-1">
+              “তিনিই সেই সত্তা যিনি তোমাদের এক সত্তা হতে সৃষ্টি করেছেন এবং তা থেকে সৃষ্টি করেছেন তার সঙ্গিনীকে, যেন সে তার সান্নিধ্যে প্রশান্তি পায়।” (সূরা আল-আ'রাফ ৭:১৮৯)
+            </p>
+          </div>
+
+          <!-- Delicate Hairline Divider -->
+          <div class="flex items-center justify-center gap-3 my-4 opacity-75">
+            <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold"></div>
+            <span class="text-gold text-xs">✦</span>
+            <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold"></div>
+          </div>
+
+          <!-- Salutation & Universal Guest Greeting -->
+          <div class="mb-3">
+            <h2 class="font-banglaSerif text-lg sm:text-xl font-bold text-gold-bright">
+              অশেষ কৃতজ্ঞতা ও পরম আনন্দের সাথে
+            </h2>
+            <p class="font-bangla text-base font-bold text-yellow-300 mt-1">
+              সম্মানিত সুধী,
+            </p>
+          </div>
+
+          <!-- General Universal Invitation Paragraph -->
+          <p class="font-bangla text-xs sm:text-sm text-cream/90 leading-relaxed max-w-xs mx-auto mb-5">
+            পারিবারিক স্নেহ ও পরম ভালোবাসার সাথে আমরা আপনাকে ও আপনার পরিবারকে আমাদের এই আনন্দঘন শুভযাত্রায় আন্তরিক আমন্ত্রণ জানাচ্ছি। আপনার সানন্দ উপস্থিতি ও মনখোলা দোয়া আমাদের আগামী দিনগুলোর পথচলাকে বরকতময় ও স্মরণীয় করে রাখবে।
+          </p>
+
+          <!-- Delicate Hairline Divider -->
+          <div class="flex items-center justify-center gap-3 my-3 opacity-75">
+            <div class="h-[1px] w-16 bg-gradient-to-r from-transparent to-gold"></div>
+            <span class="text-gold text-xs">❦</span>
+            <div class="h-[1px] w-16 bg-gradient-to-l from-transparent to-gold"></div>
+          </div>
+
+          <!-- THE COUPLE NAMES (Redesigned Hero Focal Point) -->
+          <div class="my-4 py-2">
+            <!-- Groom Name -->
+            <div>
+              <h3 class="font-banglaSerif text-xl sm:text-2xl font-bold gold-foil-text tracking-wide">
+                সাকিব হাসান প্রাঙ্গন
+              </h3>
+            </div>
+
+            <!-- Romantic Royal Ampersand -->
+            <div class="my-2 flex items-center justify-center gap-2">
+              <div class="w-8 h-[1px] bg-gold/40"></div>
+              <span class="font-banglaSerif text-lg text-yellow-300 font-bold">ও</span>
+              <div class="w-8 h-[1px] bg-gold/40"></div>
+            </div>
+
+            <!-- Bride Name -->
+            <div>
+              <h3 class="font-banglaSerif text-xl sm:text-2xl font-bold gold-foil-text tracking-wide">
+                এশা মাহমুদ ভাবনা
+              </h3>
+            </div>
+          </div>
+
+          <!-- Delicate Hairline Divider -->
+          <div class="flex items-center justify-center gap-3 my-4 opacity-75">
+            <div class="h-[1px] w-16 bg-gradient-to-r from-transparent to-gold"></div>
+            <span class="text-gold text-xs">❦</span>
+            <div class="h-[1px] w-16 bg-gradient-to-l from-transparent to-gold"></div>
+          </div>
+
+          <!-- Parents' Section (Accurate Parents Names & Khulna) -->
+          <div class="grid grid-cols-2 gap-3 text-center my-4 py-2 border-y border-gold/20">
+            <!-- Groom's Family -->
+            <div class="border-r border-gold/20 pr-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gold block">
+                বরের অভিভাবকবৃন্দ
+              </span>
+              <p class="text-xs font-bangla font-semibold text-cream mt-1">
+                মোঃ মমতাজ হাসান
+              </p>
+              <p class="text-xs font-bangla font-semibold text-cream">
+                ও শামীমা হাসান (পাখি)
+              </p>
+              <p class="text-[10px] text-cream/60 mt-0.5">
+                খুলনা, বাংলাদেশ
+              </p>
+            </div>
+
+            <!-- Bride's Family -->
+            <div class="pl-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gold block">
+                কনের অভিভাবকবৃন্দ
+              </span>
+              <p class="text-xs font-bangla font-semibold text-cream mt-1">
+                সাইফুদ্দিন মাহমুদ
+              </p>
+              <p class="text-xs font-bangla font-semibold text-cream">
+                ও শাহানা জাহান
+              </p>
+              <p class="text-[10px] text-cream/60 mt-0.5">
+                খুলনা, বাংলাদেশ
+              </p>
+            </div>
+          </div>
+
+          <!-- Blessing Closing Line -->
+          <div class="mt-4 pt-2">
+            <p class="font-banglaSerif text-sm font-bold text-cream">
+              আপনার উপস্থিতি ও দোয়াপ্রার্থী
+            </p>
+            <p class="font-script text-lg text-gold mt-0.5">
+              With Love &amp; Prayers
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 2: CURRENT OVERCROWDED (FOR COMPARISON) -->
+    <div id="viewCurrent" class="w-full flex-col items-center hidden">
+      <div class="text-center mb-4">
+        <span class="inline-block px-3 py-1 rounded-full bg-rose-950/80 border border-rose-500/50 text-rose-300 text-xs font-semibold">
+          ✕ বর্তমান ডিজাইন (Current Overcrowded Design)
+        </span>
+      </div>
+
+      <div class="phone-mockup bg-[#1C050B] p-4 sm:p-5 overflow-hidden relative">
+        <div class="relative bg-gradient-to-b from-[#2B0E14] via-[#350F18] to-[#24090F] rounded-3xl p-5 border-2 border-gold/50 shadow-3d-card text-center">
+          
+          <p class="font-arabic text-xl text-gold font-bold mb-3">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+          </p>
+
+          <!-- Heavy Box 1: Quran Verse -->
+          <div class="mb-4 p-3 rounded-2xl bg-[#1F070C]/80 border border-gold/30">
+            <p class="font-arabic text-xs text-cream">
+              وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+            </p>
+            <p class="text-[10px] text-gold/80 italic mt-1 leading-tight">
+              “এবং তাঁর নিদর্শনাবলীর মধ্যে রয়েছে যে, তিনি তোমাদের মধ্য হতে তোমাদের জন্য সঙ্গিনীদের সৃষ্টি করেছেন যাতে তোমরা তাদের নিকট শান্তি পাও এবং তিনি তোমাদের মধ্যে পারস্পরিক ভালোবাসা ও দয়া সৃষ্টি করেছেন।” (সূরা আর-রূম ৩০:২১)
+            </p>
+          </div>
+
+          <div class="mb-3">
+            <h2 class="text-base font-bold text-gold">
+              অশেষ কৃতজ্ঞতা ও পরম আনন্দের সাথে,
+            </h2>
+            <p class="text-[11px] text-gold/70">
+              With immense joy and gratitude in our hearts,
+            </p>
+          </div>
+
+          <p class="text-xs font-bold text-yellow-300 mb-2">
+            সম্মানিত Tanvir,
+          </p>
+
+          <p class="text-xs text-cream/80 leading-relaxed mb-4">
+            আমরা আপনাকে ও আপনার পরিবারবর্গকে সাকিব হাসান প্রাঞ্জন এবং এশা মাহমুদ ভাবনা এর বিবাহোত্তর বউভাত ও ওয়ালিমা প্রীতিভোজে আন্তরিক আমন্ত্রণ জানাচ্ছি। আপনাদের আগমন আমাদের সম্মানিত করবে।
+          </p>
+
+          <!-- Heavy Box 2: Couple Box with Awkward Wrap -->
+          <div class="my-4 p-3 rounded-2xl bg-[#1C050B]/80 border border-gold/40">
+            <p class="text-base font-bold text-gold leading-snug">
+              সাকিব হাসান প্রাঞ্জন ও এশা মাহমুদ ভাবনা
+            </p>
+            <p class="text-[10px] text-gold/70 mt-1">
+              Sakib Hassan Prangon &amp; Easha Mahmud Bhabna
+            </p>
+          </div>
+
+          <!-- Heavy Box 3: Parents Box -->
+          <div class="grid grid-cols-2 gap-2 text-left p-3 rounded-2xl bg-[#24090F]/90 border border-gold/30 my-4 text-[10px]">
+            <div class="border-r border-gold/20 pr-1">
+              <span class="text-gold font-bold block">বরের অভিভাবকবৃন্দ</span>
+              <p class="font-bold text-cream mt-0.5">জনাব [বাবার নাম] ও বেগম [মায়ের নাম]</p>
+              <p class="text-cream/50">ঢাকা, বাংলাদেশ</p>
+            </div>
+            <div class="pl-1">
+              <span class="text-gold font-bold block">কনের অভিভাবকবৃন্দ</span>
+              <p class="font-bold text-cream mt-0.5">জনাব [বাবার নাম] ও বেগম [মায়ের নাম]</p>
+              <p class="text-cream/50">ঢাকা, বাংলাদেশ</p>
+            </div>
+          </div>
+
+          <p class="text-xs font-bold text-cream">
+            আপনার উপস্থিতি ও দোয়াপ্রার্থী।
+          </p>
+          <p class="text-[10px] text-gold/70">
+            Your presence and prayers are warmly requested.
+          </p>
+          <p class="font-script text-base text-gold mt-1">
+            With Love &amp; Prayers
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: SIDE BY SIDE -->
+    <div id="viewSideBySide" class="w-full flex justify-center gap-8 hidden">
+      <div class="w-1/2 flex flex-col items-center">
+        <span class="inline-block px-3 py-1 mb-2 rounded-full bg-rose-950/80 border border-rose-500/50 text-rose-300 text-xs font-semibold">
+          বর্তমান (Current - 3 Dark Boxes & Awkward Wrap)
+        </span>
+        <div id="cloneCurrent" class="scale-90 origin-top"></div>
+      </div>
+
+      <div class="w-1/2 flex flex-col items-center">
+        <span class="inline-block px-3 py-1 mb-2 rounded-full bg-emerald-950/80 border border-emerald-500/50 text-emerald-400 text-xs font-semibold">
+          প্রস্তাবিত (Proposed - Clean, Royal & Stacked Names)
+        </span>
+        <div id="cloneProposed" class="scale-90 origin-top"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      const viewProposed = document.getElementById('viewProposed');
+      const viewCurrent = document.getElementById('viewCurrent');
+      const viewSideBySide = document.getElementById('viewSideBySide');
+      
+      const btnProposed = document.getElementById('btnProposed');
+      const btnCurrent = document.getElementById('btnCurrent');
+      const btnSideBySide = document.getElementById('btnSideBySide');
+
+      [btnProposed, btnCurrent, btnSideBySide].forEach(btn => {
+        if (!btn) return;
+        btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#2B0E14] text-gold/80 border border-gold/30 hover:border-gold";
+      });
+
+      viewProposed.classList.add('hidden');
+      viewProposed.classList.remove('flex');
+      viewCurrent.classList.add('hidden');
+      viewCurrent.classList.remove('flex');
+      viewSideBySide.classList.add('hidden');
+      viewSideBySide.classList.remove('flex');
+
+      if (tab === 'proposed') {
+        viewProposed.classList.remove('hidden');
+        viewProposed.classList.add('flex');
+        btnProposed.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-gold to-yellow-500 text-[#24090F] shadow-md";
+      } else if (tab === 'current') {
+        viewCurrent.classList.remove('hidden');
+        viewCurrent.classList.add('flex');
+        btnCurrent.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-gold to-yellow-500 text-[#24090F] shadow-md";
+      } else if (tab === 'sidebyside') {
+        viewSideBySide.classList.remove('hidden');
+        viewSideBySide.classList.add('flex');
+        btnSideBySide.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-gold to-yellow-500 text-[#24090F] shadow-md";
+
+        // Setup side-by-side clones if empty
+        const cloneCurr = document.getElementById('cloneCurrent');
+        const cloneProp = document.getElementById('cloneProposed');
+        if (cloneCurr.children.length === 0) {
+          cloneCurr.appendChild(viewCurrent.querySelector('.phone-mockup').cloneNode(true));
+        }
+        if (cloneProp.children.length === 0) {
+          cloneProp.appendChild(viewProposed.querySelector('.phone-mockup').cloneNode(true));
+        }
+      }
+    }
+  </script>
+</body>
+</html>
