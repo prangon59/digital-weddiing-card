@@ -466,8 +466,8 @@ export const weddingConfig = {
       bn: "সম্মানিত অতিথি:",
     },
     dateBadge: {
-      en: "December 2026 • Khulna, Bangladesh",
-      bn: "ডিসেম্বর ২০২৬ • খুলনা, বাংলাদেশ",
+      en: "23 – 27 December 2026 • Khulna, Bangladesh",
+      bn: "২৩ – ২৭ ডিসেম্বর ২০২৬ • খুলনা, বাংলাদেশ",
     },
     scrollCue: {
       en: "Scroll down to explore our story",
@@ -686,6 +686,14 @@ export const weddingConfig = {
     eventsSelectionLabel: {
       en: "Ceremonies & Guest Attendance",
       bn: "অনুষ্ঠান নির্বাচন ও সদস্য সংখ্যা",
+    },
+    wishesFieldLabel: {
+      en: "Dua & Blessings (Optional)",
+      bn: "দোয়া ও শুভকামনা (ঐচ্ছিক)",
+    },
+    wishesFieldPlaceholder: {
+      en: "Write your heartfelt prayers or warm wishes for the couple...",
+      bn: "বর-কনের জন্য আপনার মনখোলা দোয়া বা শুভকামনা লিখুন...",
     },
     maxAllottedNotice: {
       en: "Max invitation limit:",

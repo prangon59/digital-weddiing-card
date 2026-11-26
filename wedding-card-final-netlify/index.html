@@ -370,24 +370,28 @@
         <div class="mandala-ring-inner" aria-hidden="true"></div>
 
         <div class="hero-archway-card">
-          <!-- Hanging Lantern Left (from v2) -->
+          <!-- Hanging Lantern Left (v2 with independent sway wrapper) -->
           <div class="hanging-lantern lantern-left">
-            <svg width="34" height="65" viewBox="0 0 34 65" fill="none" class="lantern-glow">
-              <line x1="17" y1="0" x2="17" y2="18" stroke="#D4AF37" stroke-width="1.5" />
-              <path d="M 9,18 L 25,18 L 29,32 L 23,48 L 11,48 L 5,32 Z" fill="#4A1220" stroke="#D4AF37" stroke-width="1.5" />
-              <circle cx="17" cy="33" r="5" fill="#FFF2A3" />
-              <polygon points="17,48 14,56 20,56" fill="#D4AF37" />
-            </svg>
+            <div class="lantern-sway-wrap">
+              <svg width="36" height="68" viewBox="0 0 34 65" fill="none" class="lantern-glow">
+                <line x1="17" y1="0" x2="17" y2="18" stroke="#D4AF37" stroke-width="1.8" />
+                <path d="M 9,18 L 25,18 L 29,32 L 23,48 L 11,48 L 5,32 Z" fill="#4A1220" stroke="#D4AF37" stroke-width="1.6" />
+                <circle cx="17" cy="33" r="5.5" fill="#FFF2A3" class="lantern-bulb" />
+                <polygon points="17,48 14,56 20,56" fill="#D4AF37" />
+              </svg>
+            </div>
           </div>
 
-          <!-- Hanging Lantern Right (from v2) -->
+          <!-- Hanging Lantern Right (v2 with independent sway wrapper) -->
           <div class="hanging-lantern lantern-right">
-            <svg width="34" height="65" viewBox="0 0 34 65" fill="none" class="lantern-glow">
-              <line x1="17" y1="0" x2="17" y2="18" stroke="#D4AF37" stroke-width="1.5" />
-              <path d="M 9,18 L 25,18 L 29,32 L 23,48 L 11,48 L 5,32 Z" fill="#4A1220" stroke="#D4AF37" stroke-width="1.5" />
-              <circle cx="17" cy="33" r="5" fill="#FFF2A3" />
-              <polygon points="17,48 14,56 20,56" fill="#D4AF37" />
-            </svg>
+            <div class="lantern-sway-wrap">
+              <svg width="36" height="68" viewBox="0 0 34 65" fill="none" class="lantern-glow">
+                <line x1="17" y1="0" x2="17" y2="18" stroke="#D4AF37" stroke-width="1.8" />
+                <path d="M 9,18 L 25,18 L 29,32 L 23,48 L 11,48 L 5,32 Z" fill="#4A1220" stroke="#D4AF37" stroke-width="1.6" />
+                <circle cx="17" cy="33" r="5.5" fill="#FFF2A3" class="lantern-bulb" />
+                <polygon points="17,48 14,56 20,56" fill="#D4AF37" />
+              </svg>
+            </div>
           </div>
 
           <!-- Arabic Bismillah -->
@@ -444,10 +448,10 @@
             </svg>
           </div>
 
-          <!-- Clean Date Badge (v1 style) -->
-          <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1C050B]/85 border border-[#D4AF37]/50 shadow-sm text-xs font-semibold text-[#FFF6E5]">
-            <span>📅</span>
-            <span data-i18n="dateBadge">ডিসেম্বর ২০২৬ • খুলনা, বাংলাদেশ</span>
+          <!-- Focused Official Celebration Dates Badge -->
+          <div class="hero-date-focus-badge mt-4 inline-flex items-center gap-2.5 px-5 py-2 rounded-full cursor-default" title="Celebration Dates">
+            <span class="text-sm">📅</span>
+            <span id="hero-date-badge-text" class="text-xs sm:text-[13px] font-bold text-[#FFF6E5] font-serif tracking-wider" data-i18n="dateBadge">২৩ – ২৭ ডিসেম্বর ২০২৬ • খুলনা, বাংলাদেশ</span>
           </div>
 
           <!-- Scroll Indicator -->
@@ -604,30 +608,36 @@
             </h3>
           </div>
 
-          <!-- Parents & Residence Grid (Updated as requested) -->
+          <!-- Parents & Residence Grid (Harmonious Symmetrical Layout) -->
           <div class="formal-parents-grid">
-            <div class="border-r border-[#D4AF37]/25 pr-2">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37] block" data-i18n="sonOf">
+            <div class="formal-parent-card border-r border-[#D4AF37]/30 pr-2.5 sm:pr-4">
+              <span class="formal-parent-tag" data-i18n="sonOf">
                 বরের অভিভাবকবৃন্দ
               </span>
-              <p id="formal-groom-parents" class="text-xs font-semibold text-[#FFF6E5] mt-1 leading-snug">
+              <p id="formal-groom-parents" class="formal-parent-names">
                 মোঃ মমতাজ হাসান ও শামীমা বেগম (পাখি)
               </p>
-              <p id="formal-groom-hometown" class="text-[10px] text-[#FFF6E5]/65 mt-0.5 leading-tight">
-                ৩৩ নং শহীদ সোহরাওয়ার্দী কলেজ রোড, বানারগাতী, খুলনা
-              </p>
+              <div class="formal-parent-address-wrap">
+                <span class="text-[#D4AF37] text-xs">📍</span>
+                <p id="formal-groom-hometown" class="formal-parent-address">
+                  ৩৩ নং শহীদ সোহরাওয়ার্দী কলেজ রোড, বানারগাতী, খুলনা
+                </p>
+              </div>
             </div>
 
-            <div class="pl-2">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37] block" data-i18n="daughterOf">
+            <div class="formal-parent-card pl-2.5 sm:pl-4">
+              <span class="formal-parent-tag" data-i18n="daughterOf">
                 কনের অভিভাবকবৃন্দ
               </span>
-              <p id="formal-bride-parents" class="text-xs font-semibold text-[#FFF6E5] mt-1 leading-snug">
+              <p id="formal-bride-parents" class="formal-parent-names">
                 সাইফুদ্দিন মাহমুদ ও শাহানা জাহান
               </p>
-              <p id="formal-bride-hometown" class="text-[10px] text-[#FFF6E5]/65 mt-0.5 leading-tight">
-                ইকবাল নগর মসজিদ রোড, খুলনা
-              </p>
+              <div class="formal-parent-address-wrap">
+                <span class="text-[#D4AF37] text-xs">📍</span>
+                <p id="formal-bride-hometown" class="formal-parent-address">
+                  ইকবাল নগর মসজিদ রোড, খুলনা
+                </p>
+              </div>
             </div>
           </div>
 
@@ -853,6 +863,20 @@
               <div id="rsvp-events-list" class="space-y-2.5">
                 <!-- Injected via JavaScript -->
               </div>
+            </div>
+
+            <!-- Optional Dua & Wishes -->
+            <div>
+              <label for="rsvp-guest-wishes" class="block text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-1.5" data-i18n="wishesFieldLabel">
+                দোয়া ও শুভকামনা (ঐচ্ছিক)
+              </label>
+              <textarea
+                id="rsvp-guest-wishes"
+                rows="2"
+                class="rsvp-input resize-none"
+                placeholder="বর-কনের জন্য আপনার মনখোলা দোয়া বা শুভকামনা লিখুন..."
+                data-i18n-placeholder="wishesFieldPlaceholder"
+              ></textarea>
             </div>
 
             <!-- Submit Button (Direct In-Page submission to Google Sheets) -->

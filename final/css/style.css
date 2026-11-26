@@ -711,24 +711,96 @@ body {
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Swaying Lanterns from v2 */
+/* Swaying Hanging Lanterns (Graceful Royal Pendulum Motion) */
 .hanging-lantern {
   position: absolute;
-  top: 10px;
-  z-index: 4;
-  animation: lanternSway 4s ease-in-out infinite alternate;
+  top: 8px;
+  z-index: 10;
+  pointer-events: none;
 }
 
-.lantern-left { left: 16px; }
-.lantern-right { right: 16px; animation-delay: -2s; }
+.lantern-left {
+  left: 14px;
+}
 
-@keyframes lanternSway {
-  0% { transform: rotate(-3deg); }
-  100% { transform: rotate(3deg); }
+.lantern-right {
+  right: 14px;
+}
+
+.lantern-sway-wrap {
+  transform-origin: 50% 0%; /* Swings physically from the top cord */
+  animation: lanternPendulumLeft 3.6s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.lantern-right .lantern-sway-wrap {
+  animation-name: lanternPendulumRight;
+  animation-duration: 3.8s;
+  animation-delay: -1.8s;
+}
+
+@keyframes lanternPendulumLeft {
+  0% { transform: rotate(-8deg); }
+  50% { transform: rotate(1deg); }
+  100% { transform: rotate(8deg); }
+}
+
+@keyframes lanternPendulumRight {
+  0% { transform: rotate(8deg); }
+  50% { transform: rotate(-1deg); }
+  100% { transform: rotate(-8deg); }
 }
 
 .lantern-glow {
-  filter: drop-shadow(0 0 8px rgba(244, 163, 0, 0.75));
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.95)) drop-shadow(0 4px 18px rgba(244, 163, 0, 0.7));
+  animation: lanternFlicker 3s infinite ease-in-out alternate;
+}
+
+.lantern-bulb {
+  animation: lanternCoreGlow 2.5s infinite ease-in-out alternate;
+}
+
+@keyframes lanternCoreGlow {
+  0%, 100% { fill: #FFF2A3; filter: drop-shadow(0 0 4px #FFD700); }
+  50% { fill: #FFFFFF; filter: drop-shadow(0 0 10px #FFF9D2); }
+}
+
+@keyframes lanternFlicker {
+  0%, 100% { filter: drop-shadow(0 0 9px rgba(255, 215, 0, 0.8)) drop-shadow(0 3px 14px rgba(244, 163, 0, 0.55)); opacity: 0.92; }
+  50% { filter: drop-shadow(0 0 16px rgba(255, 235, 120, 1)) drop-shadow(0 5px 22px rgba(255, 180, 0, 0.85)); opacity: 1; }
+}
+
+/* Focused Hero Date Badge */
+.hero-date-focus-badge {
+  background: radial-gradient(circle at 50% 50%, #3D0F1A 0%, #1A050B 100%);
+  border: 1.5px solid #D4AF37;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 18px rgba(212, 175, 55, 0.5),
+    inset 0 1px 3px rgba(255, 246, 189, 0.6),
+    0 4px 15px rgba(0, 0, 0, 0.7);
+  animation: heroDatePulse 3.2s infinite ease-in-out;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.hero-date-focus-badge:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 24px rgba(255, 215, 0, 0.7),
+    inset 0 1px 4px rgba(255, 255, 255, 0.8),
+    0 6px 20px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes heroDatePulse {
+  0%, 100% {
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.4), inset 0 1px 2px rgba(255, 246, 189, 0.5), 0 4px 15px rgba(0, 0, 0, 0.6);
+    border-color: rgba(212, 175, 55, 0.85);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.7), inset 0 1px 4px rgba(255, 255, 255, 0.7), 0 6px 20px rgba(0, 0, 0, 0.8);
+    border-color: #FFF2A3;
+  }
 }
 
 .hero-archway-card {
@@ -1111,9 +1183,63 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin: 18px 0;
-  padding: 14px 0;
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 16px 8px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(28, 5, 11, 0.4);
+  border-radius: 18px;
+}
+
+.formal-parent-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  min-height: 125px;
+}
+
+.formal-parent-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #D4AF37;
+  margin-bottom: 6px;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formal-parent-names {
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFF6E5;
+  line-height: 1.35;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.formal-parent-address-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 6px;
+  min-height: 34px;
+  text-align: center;
+}
+
+.formal-parent-address {
+  font-size: 10px;
+  color: rgba(255, 246, 229, 0.7);
+  line-height: 1.3;
+  text-align: center;
 }
 
 /* --- SCENE 5: VERTICAL TIMELINE (v2 stem) --- */

@@ -1246,6 +1246,25 @@ class WeddingFinalApp {
       return `${ev.title[this.currentLang]} (${ev.dateDisplay[this.currentLang]})`;
     });
 
+    // 1. Clean list of attending ceremony titles
+    const attendingEventNames = attended.length > 0
+      ? attended.map(ev => ev.title[this.currentLang]).join(', ')
+      : (isBn ? 'কোনোটিই নয়' : 'None');
+
+    // 2. Total guests / attendees representation
+    let maxGuestsSelected = 1;
+    attended.forEach(ev => {
+      const c = this.eventAttendance[ev.id]?.count || 1;
+      if (c > maxGuestsSelected) maxGuestsSelected = c;
+    });
+    const totalGuestsStr = attended.length > 0
+      ? (isBn ? `${toBengaliNumerals(maxGuestsSelected)} জন` : `${maxGuestsSelected} guest${maxGuestsSelected > 1 ? 's' : ''}`)
+      : (isBn ? '০ জন' : '0');
+
+    // 3. Optional wishes / blessings
+    const wishesInput = document.getElementById('rsvp-guest-wishes');
+    const guestWishes = (wishesInput?.value || '').trim();
+
     const submitBtn = document.getElementById('btn-rsvp-submit');
     const submitText = document.getElementById('btn-rsvp-text');
     const submitIcon = document.getElementById('btn-rsvp-icon');
@@ -1254,11 +1273,24 @@ class WeddingFinalApp {
     if (submitIcon) submitIcon.textContent = '⏳';
     if (submitText) submitText.textContent = this.t('submittingRSVP');
 
+    // Mapped precisely to Google Sheet columns:
+    // Col 1: Timestamp
+    // Col 2: Email Address -> "-"
+    // Col 3: আপনার পূর্ণ নাম (Your Full Name) -> guestName
+    // Col 4: আপনি কোন কোন অনুষ্ঠানে উপস্থিত থাকবেন? -> attendingEventNames
+    // Col 5: আপনার সাথে মোট কতজন অতিথি উপস্থিত থাকবেন? -> totalGuestsStr
+    // Col 6: নবদম্পতির জন্য আপনার দোয়া ও শুভকামনা -> guestWishes
     const payload = {
-      guestName: guestName,
-      attendingDetails: attendingLines.length > 0 ? attendingLines.join('; ') : (isBn ? 'উপস্থিত হতে পারছি না' : 'Unable to attend'),
-      declinedDetails: declinedLines.length > 0 ? declinedLines.join('; ') : (isBn ? 'কোনোটিই নয়' : 'None'),
-      language: this.currentLang
+      fullName: guestName,
+      email: "-",
+      attendingEvents: attendingEventNames,
+      totalGuests: totalGuestsStr,
+      wishes: guestWishes,
+      // Compatibility mapping with currently deployed Apps Script:
+      guestName: "-",
+      attendingDetails: guestName,
+      declinedDetails: attendingEventNames,
+      language: totalGuestsStr
     };
 
     try {
@@ -1601,12 +1633,10 @@ class WeddingFinalApp {
             const heroRect = heroSection.getBoundingClientRect();
             if (heroRect.bottom > 0) {
               if (lanternLeft && lanternRight) {
-                const swayL = Math.sin(scrollY * 0.03) * 3.5;
-                const swayR = Math.cos(scrollY * 0.03) * -3.5;
                 const translateY_L = scrollY * 0.16;
                 const translateY_R = scrollY * 0.22;
-                lanternLeft.style.transform = `translateY(${translateY_L.toFixed(1)}px) rotate(${swayL.toFixed(1)}deg)`;
-                lanternRight.style.transform = `translateY(${translateY_R.toFixed(1)}px) rotate(${swayR.toFixed(1)}deg)`;
+                lanternLeft.style.transform = `translateY(${translateY_L.toFixed(1)}px)`;
+                lanternRight.style.transform = `translateY(${translateY_R.toFixed(1)}px)`;
               }
               if (mandala) {
                 const scale = 1 + scrollY * 0.0003;
