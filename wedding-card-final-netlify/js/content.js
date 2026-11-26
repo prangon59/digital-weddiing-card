@@ -675,6 +675,56 @@ export const weddingConfig = {
       en: "To help us make the best arrangements for all guests, please kindly confirm your reservation before 20th December 2026.",
       bn: "অতিথিদের আপ্যায়ন ও সুষ্ঠু ব্যবস্থাপনার সুবিধার্থে অনুগ্রহ করে ২০ ডিসেম্বর ২০২৬ এর পূর্বে উপস্থিতি নিশ্চিত করুন।",
     },
+
+    // Public Wishes Section (For Social Media / Unpersonalized Visitors)
+    publicWishesBadge: {
+      en: "BLESSINGS & WISHES",
+      bn: "দোয়া ও শুভকামনা",
+    },
+    publicWishesHeading: {
+      en: "Send Your Warm Blessings",
+      bn: "দোয়া ও শুভকামনা পাঠান",
+    },
+    publicWishesSubheading: {
+      en: "Your heartfelt prayers and warm wishes are the most precious gift as we begin our new journey together.",
+      bn: "আমাদের নতুন জীবনের শুভসূচনায় আপনাদের আন্তরিক দোয়া ও শুভকামনাই সবচেয়ে মূল্যবান উপহার।",
+    },
+    publicWishesNameLabel: {
+      en: "Your Name (Optional)",
+      bn: "আপনার নাম (ঐচ্ছিক)",
+    },
+    publicWishesNamePlaceholder: {
+      en: "Your name (or leave empty to send anonymously)",
+      bn: "আপনার নাম (নাম না দিতে চাইলে খালি রাখুন)",
+    },
+    publicWishesTextLabel: {
+      en: "Your Prayers & Warm Wishes",
+      bn: "আপনার আন্তরিক দোয়া ও শুভেচ্ছা",
+    },
+    publicWishesTextPlaceholder: {
+      en: "Write your heartfelt prayers or congratulations for Sakib & Easha...",
+      bn: "নবদম্পতির জন্য আপনার মনখোলা দোয়া বা শুভকামনা লিখুন...",
+    },
+    publicWishesSubmitBtn: {
+      en: "Send Warm Blessings 💖",
+      bn: "দোয়া ও শুভেচ্ছা পাঠান 💖",
+    },
+    publicWishesSubmitting: {
+      en: "Sending your blessings...",
+      bn: "শুভকামনা পাঠানো হচ্ছে...",
+    },
+    publicWishesSuccessHeading: {
+      en: "JazakAllahu Khairan! 💖",
+      bn: "জাজাকাল্লাহু খাইরান! 💖",
+    },
+    publicWishesSuccessMsg: {
+      en: "Thank you so much! Your heartfelt prayers and blessings have been warmly received by Sakib & Easha.",
+      bn: "আপনাকে আন্তরিক ধন্যবাদ! আপনার ভালোবাসা ও দোয়া সফলভাবে সাকিব ও ভাবনার কাছে পৌঁছেছে।",
+    },
+    publicWishesSendAnotherBtn: {
+      en: "Send Another Wish ✉️",
+      bn: "আরেকটি বার্তা পাঠান ✉️",
+    },
     nameFieldLabel: {
       en: "Your Full Name",
       bn: "আপনার নাম",

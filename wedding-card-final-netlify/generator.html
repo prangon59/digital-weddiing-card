@@ -3,6 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Fail-safe Guardrail: If a guest lands on generator with invitation parameters, immediately redirect to the wedding card!
+    (function() {
+      try {
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+        var fullQuery = search || (hash.indexOf('?') !== -1 ? '?' + hash.split('?')[1] : '');
+        var params = new URLSearchParams(fullQuery);
+        var hasGuestParams = params.has('to') || params.has('name') || params.has('b') || 
+                             params.has('bn') || params.has('guest') || params.has('n');
+        var isAdmin = params.has('admin') || params.has('host');
+
+        if (hasGuestParams && !isAdmin) {
+          var basePath = window.location.pathname.replace(/\/generator(\.html)?\/?$/i, '') || '';
+          if (!basePath.endsWith('/')) basePath += '/';
+          var targetUrl = window.location.origin + basePath + 'index.html' + fullQuery;
+          window.location.replace(targetUrl);
+        }
+      } catch (err) {
+        console.error('Redirect guard check:', err);
+      }
+    })();
+  </script>
   <title>Wedding Link Generator | সাকিব ও ভাবনা এর বিয়ের লিংক জেনারেটর</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔗%3C/text%3E%3C/svg%3E" />
   
@@ -291,14 +314,30 @@
   </div>
 
   <script>
-    // Initialize base URL to current origin
-    const defaultOrigin = window.location.origin + window.location.pathname.replace(/\/generator\.html.*$/, '/');
+    // Calculate clean base URL of the wedding card
+    function getCleanCardBaseUrl() {
+      var cleanPath = window.location.pathname
+        .replace(/\/generator(\.html)?\/?$/i, '')
+        .replace(/\/index\.html\/?$/i, '')
+        .replace(/\/+$/, '');
+      if (!cleanPath.endsWith('/')) {
+        cleanPath += '/';
+      }
+      return window.location.origin + cleanPath;
+    }
+
     const baseUrlInput = document.getElementById('base-url');
-    baseUrlInput.value = defaultOrigin;
+    baseUrlInput.value = getCleanCardBaseUrl();
 
     // Detect events and build query
     function updateLink() {
-      const baseUrl = baseUrlInput.value.trim().replace(/\/+$/, '') + '/';
+      var entered = (baseUrlInput.value || '').trim();
+      // Sanitize: strip any accidental /generator or /generator.html
+      entered = entered
+        .replace(/\/generator(\.html)?\/?$/i, '')
+        .replace(/\/index\.html\/?$/i, '')
+        .replace(/\/+$/, '');
+      const baseUrl = entered ? (entered + '/') : getCleanCardBaseUrl();
       const name = document.getElementById('guest-name').value.trim();
       const limit = document.getElementById('guest-limit').value;
       const lang = document.getElementById('lang-pref').value;

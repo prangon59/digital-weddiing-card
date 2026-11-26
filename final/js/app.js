@@ -146,11 +146,10 @@ class WeddingFinalApp {
       }
     }
 
-    // Safe Default Fallback if no specific events requested:
-    // Only public ceremonies (Wedding & Reception) are shown!
-    // Private family Gaye Holud (gh, bh) are NEVER exposed without explicit invite code.
+    // Default Fallback if no specific events requested (e.g. Public Homepage / Social Media):
+    // All 4 celebration ceremonies are displayed proudly!
     if (requestedLetters.length === 0) {
-      requestedLetters = ['w', 'r'];
+      requestedLetters = ['gh', 'bh', 'w', 'r'];
     }
 
     return {
@@ -457,6 +456,7 @@ class WeddingFinalApp {
     // Refresh sub-views
     this.renderTimeline();
     this.renderRSVPEvents();
+    this.setupRSVPForm();
     this.renderOurStory();
     this.updateCountdownNumbers();
   }
@@ -1188,38 +1188,159 @@ class WeddingFinalApp {
     if (secondsEl) secondsEl.textContent = formatVal(seconds);
   }
 
-  // --- RSVP FORM & DIRECT SHEET WEBHOOK ---
+  // --- RSVP FORM & DIRECT SHEET WEBHOOK / PUBLIC WISHES ---
   setupRSVPForm() {
-    const nameInput = document.getElementById('rsvp-guest-name');
-    if (nameInput) {
-      const defaultName = this.currentLang === 'bn'
-        ? (this.guest.rawNameBn || this.guest.rawNameEn || '')
-        : (this.guest.rawNameEn || this.guest.rawNameBn || '');
-      nameInput.value = defaultName;
+    const isPersonalized = this.guest.isPersonalized;
+    const rsvpForm = document.getElementById('rsvp-form');
+    const publicWishesCard = document.getElementById('public-wishes-card');
+    const headerBadge = document.getElementById('rsvp-header-badge');
+    const headerTitle = document.getElementById('rsvp-header-title');
+    const headerSubtitle = document.getElementById('rsvp-header-subtitle');
+
+    if (isPersonalized) {
+      // 1. Personalized Invited Guest -> Seat Reservation RSVP
+      if (rsvpForm) rsvpForm.classList.remove('hidden');
+      if (publicWishesCard) publicWishesCard.classList.add('hidden');
+
+      if (headerBadge) headerBadge.textContent = this.t('rsvpBadge');
+      if (headerTitle) headerTitle.textContent = this.t('rsvpHeading');
+      if (headerSubtitle) headerSubtitle.textContent = this.t('rsvpSubheading');
+
+      const nameInput = document.getElementById('rsvp-guest-name');
+      if (nameInput) {
+        const defaultName = this.currentLang === 'bn'
+          ? (this.guest.rawNameBn || this.guest.rawNameEn || '')
+          : (this.guest.rawNameEn || this.guest.rawNameBn || '');
+        nameInput.value = defaultName;
+      }
+
+      this.renderRSVPEvents();
+
+      if (rsvpForm && !rsvpForm.dataset.bound) {
+        rsvpForm.dataset.bound = 'true';
+        rsvpForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          await this.submitSheetRSVP();
+        });
+      }
+
+      const modifyBtn = document.getElementById('btn-rsvp-modify');
+      if (modifyBtn && !modifyBtn.dataset.bound) {
+        modifyBtn.dataset.bound = 'true';
+        modifyBtn.addEventListener('click', () => {
+          const formEl = document.getElementById('rsvp-form');
+          const successCard = document.getElementById('rsvp-success-card');
+          if (formEl && successCard) {
+            successCard.classList.add('hidden');
+            formEl.classList.remove('hidden');
+            formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      }
+    } else {
+      // 2. Public / Social Media Visitor -> Wishes & Prayers Box (Idea 1)
+      if (rsvpForm) rsvpForm.classList.add('hidden');
+      if (publicWishesCard) publicWishesCard.classList.remove('hidden');
+
+      if (headerBadge) headerBadge.textContent = this.t('publicWishesBadge');
+      if (headerTitle) headerTitle.textContent = this.t('publicWishesHeading');
+      if (headerSubtitle) headerSubtitle.textContent = this.t('publicWishesSubheading');
+
+      const wishesForm = document.getElementById('public-wishes-form');
+      if (wishesForm && !wishesForm.dataset.bound) {
+        wishesForm.dataset.bound = 'true';
+        wishesForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          await this.submitPublicWishes();
+        });
+      }
+
+      const sendAnotherBtn = document.getElementById('btn-send-another-wish');
+      if (sendAnotherBtn && !sendAnotherBtn.dataset.bound) {
+        sendAnotherBtn.dataset.bound = 'true';
+        sendAnotherBtn.addEventListener('click', () => {
+          const wishesSuccess = document.getElementById('public-wishes-success');
+          const wishesFormEl = document.getElementById('public-wishes-form');
+          const wishesText = document.getElementById('public-wishes-text');
+          if (wishesSuccess && wishesFormEl) {
+            wishesSuccess.classList.add('hidden');
+            wishesFormEl.classList.remove('hidden');
+            if (wishesText) wishesText.value = '';
+            wishesFormEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      }
+    }
+  }
+
+  async submitPublicWishes() {
+    const nameInput = document.getElementById('public-wishes-name');
+    const textInput = document.getElementById('public-wishes-text');
+    const isBn = this.currentLang === 'bn';
+
+    const rawName = (nameInput?.value || '').trim();
+    const visitorName = rawName || (isBn ? 'শুভাকাঙ্ক্ষী' : 'Well-wisher');
+    const wishText = (textInput?.value || '').trim();
+
+    if (!wishText) {
+      if (textInput) textInput.focus();
+      return;
     }
 
-    this.renderRSVPEvents();
+    const submitBtn = document.getElementById('btn-public-wishes-submit');
+    const submitText = document.getElementById('btn-public-wishes-text');
+    const submitIcon = document.getElementById('btn-public-wishes-icon');
 
-    const form = document.getElementById('rsvp-form');
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        await this.submitSheetRSVP();
+    if (submitBtn) submitBtn.disabled = true;
+    if (submitIcon) submitIcon.textContent = '⏳';
+    if (submitText) submitText.textContent = this.t('publicWishesSubmitting');
+
+    const attendingLabel = isBn ? 'শুভেচ্ছা বার্তা (সোশ্যাল মিডিয়া)' : 'Social Media Well-wisher';
+    const totalGuestsLabel = isBn ? '০ জন (শুভেচ্ছা বার্তা)' : '0 guests (Wishes only)';
+
+    const payload = {
+      fullName: visitorName,
+      email: "-",
+      attendingEvents: attendingLabel,
+      totalGuests: totalGuestsLabel,
+      wishes: wishText,
+      // Compatibility mapping for Google Apps Script:
+      guestName: "-",
+      attendingDetails: visitorName,
+      declinedDetails: attendingLabel,
+      language: totalGuestsLabel
+    };
+
+    try {
+      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbxhEFZAoifGb-m1mE3mNz4bugTHMQiP5qBhZoKtUGnzDmiRUul2gCqe7rjpxyqsNXVk/exec";
+      await fetch(webhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(payload)
       });
+      this.showPublicWishesSuccess();
+    } catch (err) {
+      console.error('Error submitting public wishes:', err);
+      this.showPublicWishesSuccess();
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+      if (submitIcon) submitIcon.textContent = '💖';
+      if (submitText) submitText.textContent = this.t('publicWishesSubmitBtn');
     }
+  }
 
-    const modifyBtn = document.getElementById('btn-rsvp-modify');
-    if (modifyBtn) {
-      modifyBtn.addEventListener('click', () => {
-        const formEl = document.getElementById('rsvp-form');
-        const successCard = document.getElementById('rsvp-success-card');
-        if (formEl && successCard) {
-          successCard.classList.add('hidden');
-          formEl.classList.remove('hidden');
-          formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      });
+  showPublicWishesSuccess() {
+    const formEl = document.getElementById('public-wishes-form');
+    const successCard = document.getElementById('public-wishes-success');
+    if (formEl) formEl.classList.add('hidden');
+    if (successCard) {
+      successCard.classList.remove('hidden');
+      successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+    this.launchGlitterConfetti();
   }
 
   async submitSheetRSVP() {

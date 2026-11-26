@@ -823,14 +823,14 @@
       <!-- SCENE 9: RSVP & WHATSAPP (v1) -->
       <section id="rsvp" class="scroll-scene">
         <div class="rsvp-card">
-          <div class="text-center mb-5">
-            <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="rsvpBadge">
+          <div id="rsvp-header" class="text-center mb-5">
+            <span id="rsvp-header-badge" class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]" data-i18n="rsvpBadge">
               উপস্থিতি নিশ্চিতকরণ
             </span>
-            <h2 class="text-2xl font-bold font-serif gold-foil-text mt-1" data-i18n="rsvpHeading">
+            <h2 id="rsvp-header-title" class="text-2xl font-bold font-serif gold-foil-text mt-1" data-i18n="rsvpHeading">
               আপনার উপস্থিতি নিশ্চিত করুন
             </h2>
-            <p class="text-xs text-[#FFF6E5]/80 mt-1 leading-relaxed" data-i18n="rsvpSubheading">
+            <p id="rsvp-header-subtitle" class="text-xs text-[#FFF6E5]/80 mt-1 leading-relaxed" data-i18n="rsvpSubheading">
               অতিথিদের আপ্যায়ন ও সুষ্ঠু ব্যবস্থাপনার সুবিধার্থে অনুগ্রহ করে ২০ ডিসেম্বর ২০২৬ এর পূর্বে উপস্থিতি নিশ্চিত করুন।
             </p>
           </div>
@@ -910,6 +910,88 @@
             </div>
           </form>
 
+          <!-- Public Social Media Wishes Box (Idea 1: For Visitors Without Personalized Invite) -->
+          <div id="public-wishes-card" class="space-y-4 hidden">
+            <form id="public-wishes-form" class="space-y-4">
+              <!-- Visitor Name (Optional / Anonymous) -->
+              <div>
+                <label for="public-wishes-name" class="block text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-1.5" data-i18n="publicWishesNameLabel">
+                  আপনার নাম (ঐচ্ছিক)
+                </label>
+                <input
+                  id="public-wishes-name"
+                  type="text"
+                  class="rsvp-input"
+                  placeholder="আপনার নাম (নাম না দিতে চাইলে খালি রাখুন)"
+                  data-i18n-placeholder="publicWishesNamePlaceholder"
+                />
+              </div>
+
+              <!-- Dua & Wishes Textarea -->
+              <div>
+                <label for="public-wishes-text" class="block text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-1.5" data-i18n="publicWishesTextLabel">
+                  আপনার আন্তরিক দোয়া ও শুভেচ্ছা
+                </label>
+                <textarea
+                  id="public-wishes-text"
+                  rows="3"
+                  class="rsvp-input resize-none"
+                  placeholder="বর-কনের নতুন জীবনের জন্য আপনার আন্তরিক দোয়া বা শুভকামনা লিখুন..."
+                  data-i18n-placeholder="publicWishesTextPlaceholder"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  class="btn-googleform-rsvp"
+                  id="btn-public-wishes-submit"
+                >
+                  <span id="btn-public-wishes-icon">💖</span>
+                  <span id="btn-public-wishes-text" data-i18n="publicWishesSubmitBtn">দোয়া ও শুভেচ্ছা পাঠান 💖</span>
+                </button>
+              </div>
+
+              <!-- Secondary WhatsApp Contact -->
+              <div class="text-center mt-3 pt-2.5 border-t border-[#D4AF37]/20">
+                <a
+                  href="https://wa.me/8801791164440"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-xs text-[#D4AF37] hover:text-[#FFF6E5] transition-colors"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 2C6.494 2 2 6.494 2 12.031c0 1.808.479 3.525 1.319 5.02L2 22l5.097-1.309a10.01 10.01 0 0 0 4.934 1.286h.005c5.536 0 10.03-4.494 10.03-10.031 0-2.678-1.043-5.197-2.936-7.09A9.957 9.957 0 0 0 12.031 2zm5.856 14.188c-.244.685-1.42 1.272-1.956 1.348-.518.075-1.189.106-1.91-.125-.436-.14-1.002-.326-1.73-.642-3.053-1.325-5.048-4.417-5.2-4.619-.153-.203-1.242-1.654-1.242-3.155 0-1.501.786-2.24 1.066-2.545.28-.305.61-.381.813-.381.203 0 .407.002.585.011.188.01.44-.07.687.525.254.61.864 2.109.94 2.262.076.153.127.33.025.534-.102.203-.153.33-.305.508-.153.178-.32.398-.458.534-.153.153-.312.32-.134.626.178.305.79 1.304 1.696 2.112 1.166 1.04 2.148 1.362 2.454 1.515.305.153.483.127.661-.076.178-.203.763-.889.966-1.194.203-.305.407-.254.686-.153.28.102 1.779.839 2.085.992.305.153.508.229.585.356.076.127.076.737-.168 1.422z"/>
+                  </svg>
+                  <span data-i18n="whatsappEmergencyText">যেকোনো বিশেষ প্রয়োজনে হোয়াটসঅ্যাপে যোগাযোগ করুন</span>
+                </a>
+              </div>
+            </form>
+
+            <!-- Public Wishes Success State -->
+            <div id="public-wishes-success" class="hidden text-center py-6 px-4 bg-[#3A0F19]/90 border border-[#D4AF37]/60 rounded-2xl shadow-xl space-y-3">
+              <div class="w-14 h-14 mx-auto rounded-full bg-[#D4AF37]/20 border border-[#D4AF37] flex items-center justify-center text-2xl shadow-gold-glow animate-bounce">
+                💖
+              </div>
+              <h3 class="text-xl font-bold font-serif gold-foil-text" data-i18n="publicWishesSuccessHeading">
+                জাজাকাল্লাহু খাইরান! 💖
+              </h3>
+              <p class="text-xs text-[#FFF6E5]/90 leading-relaxed max-w-sm mx-auto" data-i18n="publicWishesSuccessMsg">
+                আপনাকে আন্তরিক ধন্যবাদ! আপনার ভালোবাসা ও দোয়া সফলভাবে সাকিব ও ভাবনার কাছে পৌঁছেছে।
+              </p>
+              <button
+                type="button"
+                id="btn-send-another-wish"
+                class="mt-3 px-4 py-2 rounded-xl border border-[#D4AF37]/40 bg-[#1C050B]/80 text-[#D4AF37] text-xs font-semibold hover:border-[#D4AF37] transition-all"
+                data-i18n="publicWishesSendAnotherBtn"
+              >
+                আরেকটি বার্তা পাঠান ✉️
+              </button>
+            </div>
+          </div>
+
           <!-- Golden Success State Box (Revealed after successful submission) -->
           <div id="rsvp-success-card" class="hidden text-center py-6 px-4 bg-[#3A0F19]/90 border border-[#D4AF37]/60 rounded-2xl shadow-xl space-y-4">
             <div class="w-14 h-14 mx-auto rounded-full bg-[#D4AF37]/20 border border-[#D4AF37] flex items-center justify-center text-2xl shadow-gold-glow animate-bounce">
@@ -943,7 +1025,6 @@
               <span data-i18n="rsvpChangeResponseBtn">প্রয়োজনে তথ্য পরিবর্তন করুন ↺</span>
             </button>
           </div>
-          </form>
         </div>
       </section>
 
