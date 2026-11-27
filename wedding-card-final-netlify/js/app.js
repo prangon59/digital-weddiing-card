@@ -195,6 +195,7 @@ class WeddingFinalApp {
     this.setupReplayButton();
     this.setupHostTrigger();
     this.applyLanguage();
+    this.initAllCards3DTilt();
   }
 
   // --- HOST SECRET TRIGGER ---
@@ -282,15 +283,18 @@ class WeddingFinalApp {
     if (this.isPlaying) {
       this.audio.pause();
       this.isPlaying = false;
+      this.updateAudioButtonUI();
     } else {
       this.audio.volume = 0.65;
       this.audio.play().then(() => {
         this.isPlaying = true;
+        this.updateAudioButtonUI();
       }).catch(err => {
         console.warn('Audio play prevented:', err);
+        this.isPlaying = false;
+        this.updateAudioButtonUI();
       });
     }
-    this.updateAudioButtonUI();
   }
 
   updateAudioButtonUI() {
@@ -305,11 +309,12 @@ class WeddingFinalApp {
       audioBtn.setAttribute('aria-label', this.t('musicMute'));
       audioBtn.title = this.t('musicMute');
       audioIcon.innerHTML = `
-        <svg class="w-5 h-5 text-[#D4AF37] animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-        </svg>
+        <div class="music-eq-bars" aria-label="Playing audio">
+          <span class="music-bar music-bar-1"></span>
+          <span class="music-bar music-bar-2"></span>
+          <span class="music-bar music-bar-3"></span>
+          <span class="music-bar music-bar-4"></span>
+        </div>
       `;
       if (ripple) ripple.style.display = 'block';
     } else {
@@ -317,7 +322,7 @@ class WeddingFinalApp {
       audioBtn.setAttribute('aria-label', this.t('musicPlay'));
       audioBtn.title = this.t('musicPlay');
       audioIcon.innerHTML = `
-        <svg class="w-5 h-5 text-[#FFF6E5]/75" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg class="w-4 h-4 text-[#FFF6E5]/75 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
           <line x1="23" y1="9" x2="17" y2="15"></line>
           <line x1="17" y1="9" x2="23" y2="15"></line>
@@ -422,8 +427,8 @@ class WeddingFinalApp {
     if (formalGroomEl) formalGroomEl.textContent = groomName;
     if (formalBrideEl) formalBrideEl.textContent = brideName;
 
-    if (groomParentsEl) groomParentsEl.textContent = weddingConfig.groom.parents[this.currentLang];
-    if (brideParentsEl) brideParentsEl.textContent = weddingConfig.bride.parents[this.currentLang];
+    if (groomParentsEl) groomParentsEl.innerHTML = weddingConfig.groom.parents[this.currentLang];
+    if (brideParentsEl) brideParentsEl.innerHTML = weddingConfig.bride.parents[this.currentLang];
     if (groomHomeEl) groomHomeEl.textContent = weddingConfig.groom.hometown[this.currentLang];
     if (brideHomeEl) brideHomeEl.textContent = weddingConfig.bride.hometown[this.currentLang];
 
@@ -432,11 +437,11 @@ class WeddingFinalApp {
     if (this.guest.isPersonalized) {
       if (heroGuestBadgeEl) {
         heroGuestBadgeEl.innerHTML = `
-          <div class="inline-block px-5 py-2 rounded-2xl bg-gradient-to-r from-[#2A0912]/95 via-[#451220]/95 to-[#2A0912]/95 border-1.5 border-[#D4AF37] shadow-[0_0_18px_rgba(212,175,55,0.4)] text-center my-1.5">
-            <p class="text-[11px] font-bold text-[#D4AF37] tracking-wider uppercase">
+          <div class="inline-flex flex-col items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-[#2A0912]/90 via-[#451220]/90 to-[#2A0912]/90 border border-[#D4AF37]/60 shadow-[0_2px_12px_rgba(212,175,55,0.3)] my-1 max-w-[90vw]">
+            <p class="text-[10px] font-semibold text-[#D4AF37] tracking-widest uppercase">
               ✦ ${this.t('guestBadgePrefix')} ✦
             </p>
-            <p class="text-base sm:text-lg font-bold font-serif text-[#FCF6BA] mt-0.5 tracking-wide drop-shadow">
+            <p class="text-base sm:text-lg font-bold font-serif gold-foil-text tracking-wide drop-shadow leading-tight mt-0.5">
               ${guestName}
             </p>
           </div>
@@ -445,11 +450,11 @@ class WeddingFinalApp {
       }
       if (gateGuestBadgeEl) {
         gateGuestBadgeEl.innerHTML = `
-          <div class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-[#24090F]/95 via-[#3D101C]/95 to-[#24090F]/95 border-2 border-[#D4AF37] shadow-[0_0_22px_rgba(212,175,55,0.5)] text-center">
-            <p class="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">
+          <div class="inline-flex flex-col items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-[#24090F]/90 via-[#3D101C]/90 to-[#24090F]/90 border border-[#D4AF37]/70 shadow-[0_2px_14px_rgba(212,175,55,0.4)] backdrop-blur-sm text-center max-w-[90vw]">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]">
               ✦ ${this.t('honoredGuestLabel')} ✦
             </p>
-            <p class="text-xl sm:text-2xl font-bold font-serif text-[#FCF6BA] mt-0.5 tracking-wide drop-shadow-md">
+            <p class="text-base sm:text-lg font-bold font-serif gold-foil-text tracking-wider drop-shadow-md leading-tight mt-0.5">
               ${guestName}
             </p>
           </div>
@@ -467,6 +472,7 @@ class WeddingFinalApp {
     this.setupRSVPForm();
     this.renderOurStory();
     this.updateCountdownNumbers();
+    this.initAllCards3DTilt();
   }
 
   // --- SCENE 1: ROYAL DOUBLE GATES OPENING (v1) ---
@@ -978,10 +984,12 @@ class WeddingFinalApp {
     }
   }
 
-  setupStoryTilt(card) {
-    if (!card) return;
-    const maxTilt = 6;
-    const scale = 1.015;
+  setupUniversal3DTilt(card, maxTilt = 8) {
+    if (!card || card.dataset.tiltBound) return;
+    card.dataset.tiltBound = 'true';
+    card.style.transformStyle = 'preserve-3d';
+    card.style.willChange = 'transform';
+    card.style.transition = 'transform 0.15s ease-out';
 
     const onMove = (e) => {
       const rect = card.getBoundingClientRect();
@@ -994,17 +1002,50 @@ class WeddingFinalApp {
       const centerY = rect.height / 2;
       const rotateX = ((y - centerY) / centerY) * -maxTilt;
       const rotateY = ((x - centerX) / centerX) * maxTilt;
-      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(${scale}, ${scale}, ${scale})`;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
     };
 
     const onLeave = () => {
+      card.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
     };
 
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform 0.15s ease-out';
+    });
     card.addEventListener('mousemove', onMove);
     card.addEventListener('mouseleave', onLeave);
     card.addEventListener('touchmove', onMove, { passive: true });
     card.addEventListener('touchend', onLeave);
+  }
+
+  setupStoryTilt(card) {
+    this.setupUniversal3DTilt(card, 8);
+  }
+
+  initAllCards3DTilt() {
+    // 1. Story cards
+    document.querySelectorAll('.story-tilt-inner, #story-desktop-tilt-card').forEach(el => {
+      this.setupUniversal3DTilt(el, 8);
+    });
+    // 2. Timeline program ceremony cards
+    document.querySelectorAll('.timeline-card').forEach(el => {
+      this.setupUniversal3DTilt(el, 7);
+    });
+    // 3. Parents cards & Formal card
+    document.querySelectorAll('.formal-parent-card, #formal-invitation-card').forEach(el => {
+      this.setupUniversal3DTilt(el, 6);
+    });
+    // 4. Countdown card
+    const countdownInner = document.querySelector('.countdown-glass-card');
+    if (countdownInner) this.setupUniversal3DTilt(countdownInner, 6);
+    // 5. Transit cards
+    document.querySelectorAll('.transit-card').forEach(el => {
+      this.setupUniversal3DTilt(el, 6);
+    });
+    // 6. RSVP card
+    const rsvpCard = document.querySelector('#rsvp-form, #public-wishes-card');
+    if (rsvpCard) this.setupUniversal3DTilt(rsvpCard, 5);
   }
 
   fireConfetti() {
@@ -1304,19 +1345,22 @@ class WeddingFinalApp {
     if (submitText) submitText.textContent = this.t('publicWishesSubmitting');
 
     const attendingLabel = isBn ? 'শুভেচ্ছা বার্তা (সোশ্যাল মিডিয়া)' : 'Social Media Well-wisher';
-    const totalGuestsLabel = isBn ? '০ জন (শুভেচ্ছা বার্তা)' : '0 guests (Wishes only)';
+    const totalGuestsLabel = isBn ? '০ জন' : '0 guests';
 
     const payload = {
+      timestamp: new Date().toISOString(),
+      email: "-",
       fullName: visitorName,
       guestName: visitorName,
-      email: "-",
-      totalSum: 0,
+      attendingEvents: attendingLabel,
       totalGuests: totalGuestsLabel,
+      totalSum: 0,
+      holudGuests: "-",
       borHoludCount: 0,
       konerHoludCount: 0,
-      weddingCount: 0,
+      boubhatGuests: "-",
       receptionCount: 0,
-      attendingEvents: attendingLabel,
+      weddingCount: 0,
       wishes: wishText,
       // Compatibility mapping for Google Apps Script:
       attendingDetails: visitorName,
@@ -1404,7 +1448,17 @@ class WeddingFinalApp {
       ? `${toBengaliNumerals(totalSum)} জন`
       : `${totalSum} guest${totalSum > 1 ? 's' : ''}`;
 
-    // 3. Optional wishes / blessings
+    // 3. Holud guests string
+    const holudGuestsStr = borHoludCount > 0
+      ? (isBn ? `${toBengaliNumerals(borHoludCount)} জন` : `${borHoludCount}`)
+      : (konerHoludCount > 0 ? (isBn ? `${toBengaliNumerals(konerHoludCount)} জন` : `${konerHoludCount}`) : "-");
+
+    // 4. Boubhat guests string
+    const boubhatGuestsStr = receptionCount > 0
+      ? (isBn ? `${toBengaliNumerals(receptionCount)} জন` : `${receptionCount}`)
+      : "-";
+
+    // 5. Optional wishes / blessings
     const wishesInput = document.getElementById('rsvp-guest-wishes');
     const guestWishes = (wishesInput?.value || '').trim();
 
@@ -1418,16 +1472,19 @@ class WeddingFinalApp {
 
     // Mapped precisely with individual event counts & total sum
     const payload = {
+      timestamp: new Date().toISOString(),
+      email: "-",
       fullName: guestName,
       guestName: guestName,
-      email: "-",
-      totalSum: totalSum,
+      attendingEvents: attendingEventNames,
       totalGuests: totalGuestsStr,
+      totalSum: totalSum,
+      holudGuests: holudGuestsStr,
       borHoludCount: borHoludCount,
       konerHoludCount: konerHoludCount,
-      weddingCount: weddingCount,
+      boubhatGuests: boubhatGuestsStr,
       receptionCount: receptionCount,
-      attendingEvents: attendingEventNames,
+      weddingCount: weddingCount,
       wishes: guestWishes,
       // Compatibility mapping with currently deployed Apps Script:
       attendingDetails: guestName,

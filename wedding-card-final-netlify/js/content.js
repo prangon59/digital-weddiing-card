@@ -22,8 +22,8 @@ export const weddingConfig = {
       bn: "বর",
     },
     parents: {
-      en: "Md Mamtaz Hassan & Shamima Begum (Pakhi)",
-      bn: "মোঃ মমতাজ হাসান ও শামীমা বেগম (পাখি)",
+      en: "Md Mamtaz Hassan &<br/>Shamima Begum (Pakhi)",
+      bn: "মোঃ মমতাজ হাসান ও<br/>শামীমা বেগম (পাখি)",
     },
     hometown: {
       en: "33 no Shahid Sohrawardy College Road, Banargati, Khulna",
@@ -46,8 +46,8 @@ export const weddingConfig = {
       bn: "কনে",
     },
     parents: {
-      en: "Saifuddin Mahmud & Shahana Jahan",
-      bn: "সাইফুদ্দিন মাহমুদ ও শাহানা জাহান",
+      en: "Saifuddin Mahmud &<br/>Shahana Jahan",
+      bn: "সাইফুদ্দিন মাহমুদ ও<br/>শাহানা জাহান",
     },
     hometown: {
       en: "Iqbal Nagar Mosque Road, Khulna",
