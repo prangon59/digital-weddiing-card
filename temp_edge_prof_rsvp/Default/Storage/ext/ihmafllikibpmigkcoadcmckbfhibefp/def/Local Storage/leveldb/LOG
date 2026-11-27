@@ -1,4 +1,0 @@
-2026/11/27-12:14:08.122 60dc Creating DB C:\Users\Sakib\Desktop\wedding card\temp_edge_prof_rsvp\Default\Storage\ext\ihmafllikibpmigkcoadcmckbfhibefp\def\Local Storage\leveldb since it was missing.
-2026/11/27-12:14:08.168 60dc Reusing MANIFEST C:\Users\Sakib\Desktop\wedding card\temp_edge_prof_rsvp\Default\Storage\ext\ihmafllikibpmigkcoadcmckbfhibefp\def\Local Storage\leveldb/MANIFEST-000001
-2026/11/27-12:14:08.173 60dc Recovering log #3
-2026/11/27-12:14:08.184 60dc Reusing old log C:\Users\Sakib\Desktop\wedding card\temp_edge_prof_rsvp\Default\Storage\ext\ihmafllikibpmigkcoadcmckbfhibefp\def\Local Storage\leveldb/000003.log 
