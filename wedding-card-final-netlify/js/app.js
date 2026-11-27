@@ -1369,7 +1369,7 @@ class WeddingFinalApp {
     };
 
     try {
-      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbyq6gbjwFh_BLYYfViMoS8DWSPCc_dlQDysbpolT1USmRsN9VkNj8Sapd-YYuPLaYpX/exec";
+      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbzI2-GVXi36DCBrPBCh5ral62uAbDUbsHHeMQKGxiFzw8jYPz_Sv95xUZywj0ZWHLvS/exec";
       await fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors',
@@ -1501,7 +1501,7 @@ class WeddingFinalApp {
     };
 
     try {
-      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbyq6gbjwFh_BLYYfViMoS8DWSPCc_dlQDysbpolT1USmRsN9VkNj8Sapd-YYuPLaYpX/exec";
+      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbzI2-GVXi36DCBrPBCh5ral62uAbDUbsHHeMQKGxiFzw8jYPz_Sv95xUZywj0ZWHLvS/exec";
       await fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors',
