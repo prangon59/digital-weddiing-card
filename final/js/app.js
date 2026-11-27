@@ -1369,7 +1369,7 @@ class WeddingFinalApp {
     };
 
     try {
-      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbxhEFZAoifGb-m1mE3mNz4bugTHMQiP5qBhZoKtUGnzDmiRUul2gCqe7rjpxyqsNXVk/exec";
+      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbyq6gbjwFh_BLYYfViMoS8DWSPCc_dlQDysbpolT1USmRsN9VkNj8Sapd-YYuPLaYpX/exec";
       await fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors',
@@ -1448,10 +1448,18 @@ class WeddingFinalApp {
       ? `${toBengaliNumerals(totalSum)} জন`
       : `${totalSum} guest${totalSum > 1 ? 's' : ''}`;
 
-    // 3. Holud guests string
-    const holudGuestsStr = borHoludCount > 0
-      ? (isBn ? `${toBengaliNumerals(borHoludCount)} জন` : `${borHoludCount}`)
-      : (konerHoludCount > 0 ? (isBn ? `${toBengaliNumerals(konerHoludCount)} জন` : `${konerHoludCount}`) : "-");
+    // 3. Holud guests string (handles Bor Holud only, Koner Holud only, or both)
+    let holudGuestsStr = "-";
+    if (borHoludCount > 0 && konerHoludCount > 0) {
+      const holudTotal = borHoludCount + konerHoludCount;
+      holudGuestsStr = isBn
+        ? `${toBengaliNumerals(holudTotal)} জন (বর: ${toBengaliNumerals(borHoludCount)}, কনে: ${toBengaliNumerals(konerHoludCount)})`
+        : `${holudTotal} (Groom: ${borHoludCount}, Bride: ${konerHoludCount})`;
+    } else if (borHoludCount > 0) {
+      holudGuestsStr = isBn ? `${toBengaliNumerals(borHoludCount)} জন` : `${borHoludCount}`;
+    } else if (konerHoludCount > 0) {
+      holudGuestsStr = isBn ? `${toBengaliNumerals(konerHoludCount)} জন` : `${konerHoludCount}`;
+    }
 
     // 4. Boubhat guests string
     const boubhatGuestsStr = receptionCount > 0
@@ -1493,7 +1501,7 @@ class WeddingFinalApp {
     };
 
     try {
-      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbxhEFZAoifGb-m1mE3mNz4bugTHMQiP5qBhZoKtUGnzDmiRUul2gCqe7rjpxyqsNXVk/exec";
+      const webhookUrl = weddingConfig.rsvpWebhookUrl || "https://script.google.com/macros/s/AKfycbyq6gbjwFh_BLYYfViMoS8DWSPCc_dlQDysbpolT1USmRsN9VkNj8Sapd-YYuPLaYpX/exec";
       await fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors',

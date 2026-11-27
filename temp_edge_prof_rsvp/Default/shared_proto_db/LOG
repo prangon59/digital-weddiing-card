@@ -1,0 +1,4 @@
+2026/11/27-12:14:08.033 e74 Creating DB C:\Users\Sakib\Desktop\wedding card\temp_edge_prof_rsvp\Default\shared_proto_db since it was missing.
+2026/11/27-12:14:08.086 e74 Reusing MANIFEST C:\Users\Sakib\Desktop\wedding card\temp_edge_prof_rsvp\Default\shared_proto_db/MANIFEST-000001
+2026/11/27-12:14:08.087 e74 Recovering log #3
+2026/11/27-12:14:08.087 e74 Reusing old log C:\Users\Sakib\Desktop\wedding card\temp_edge_prof_rsvp\Default\shared_proto_db/000003.log 

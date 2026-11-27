@@ -58,7 +58,7 @@ export const weddingConfig = {
   timezone: "Asia/Dhaka", // UTC+6
   hashtag: "#SakibWedsEasha2026",
   rsvpWhatsAppNumber: "8801791164440",
-  rsvpWebhookUrl: "https://script.google.com/macros/s/AKfycbxhEFZAoifGb-m1mE3mNz4bugTHMQiP5qBhZoKtUGnzDmiRUul2gCqe7rjpxyqsNXVk/exec",
+  rsvpWebhookUrl: "https://script.google.com/macros/s/AKfycbyq6gbjwFh_BLYYfViMoS8DWSPCc_dlQDysbpolT1USmRsN9VkNj8Sapd-YYuPLaYpX/exec",
   rsvpGoogleFormUrl: "https://forms.gle/StiU2P848nCeuQzW6",
   rsvpGoogleSheetUrl: "https://docs.google.com/spreadsheets/d/1P808kR9yekOE7o6XSqTLAktxWjYTdQnXSX9W8GfpVos/edit",
 
